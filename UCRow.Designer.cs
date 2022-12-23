@@ -49,21 +49,19 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.Controls.Add(this.LblFlightTo, 4, 1);
-			this.tableLayoutPanel1.Controls.Add(this.LblUpdate, 5, 1);
-			this.tableLayoutPanel1.Controls.Add(this.LblFlightNum, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.LblSTD, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.LblETA, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.LblAirlines, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.LblFlightTo, 4, 0);
+			this.tableLayoutPanel1.Controls.Add(this.LblUpdate, 5, 0);
+			this.tableLayoutPanel1.Controls.Add(this.LblFlightNum, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.LblSTD, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.LblETA, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.LblAirlines, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 38);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 93);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// LblFlightTo
@@ -71,9 +69,9 @@
 			this.LblFlightTo.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblFlightTo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblFlightTo.IsDerivedStyle = true;
-			this.LblFlightTo.Location = new System.Drawing.Point(603, -4);
+			this.LblFlightTo.Location = new System.Drawing.Point(603, 0);
 			this.LblFlightTo.Name = "LblFlightTo";
-			this.LblFlightTo.Size = new System.Drawing.Size(144, 42);
+			this.LblFlightTo.Size = new System.Drawing.Size(144, 93);
 			this.LblFlightTo.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightTo.StyleManager = null;
 			this.LblFlightTo.TabIndex = 16;
@@ -87,9 +85,9 @@
 			this.LblUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblUpdate.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblUpdate.IsDerivedStyle = true;
-			this.LblUpdate.Location = new System.Drawing.Point(753, -4);
+			this.LblUpdate.Location = new System.Drawing.Point(753, 0);
 			this.LblUpdate.Name = "LblUpdate";
-			this.LblUpdate.Size = new System.Drawing.Size(146, 42);
+			this.LblUpdate.Size = new System.Drawing.Size(146, 93);
 			this.LblUpdate.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblUpdate.StyleManager = null;
 			this.LblUpdate.TabIndex = 14;
@@ -103,9 +101,9 @@
 			this.LblFlightNum.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblFlightNum.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblFlightNum.IsDerivedStyle = true;
-			this.LblFlightNum.Location = new System.Drawing.Point(453, -4);
+			this.LblFlightNum.Location = new System.Drawing.Point(453, 0);
 			this.LblFlightNum.Name = "LblFlightNum";
-			this.LblFlightNum.Size = new System.Drawing.Size(144, 42);
+			this.LblFlightNum.Size = new System.Drawing.Size(144, 93);
 			this.LblFlightNum.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightNum.StyleManager = null;
 			this.LblFlightNum.TabIndex = 9;
@@ -119,9 +117,9 @@
 			this.LblSTD.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblSTD.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblSTD.IsDerivedStyle = true;
-			this.LblSTD.Location = new System.Drawing.Point(3, -4);
+			this.LblSTD.Location = new System.Drawing.Point(3, 0);
 			this.LblSTD.Name = "LblSTD";
-			this.LblSTD.Size = new System.Drawing.Size(144, 42);
+			this.LblSTD.Size = new System.Drawing.Size(144, 93);
 			this.LblSTD.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblSTD.StyleManager = null;
 			this.LblSTD.TabIndex = 8;
@@ -135,9 +133,9 @@
 			this.LblETA.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblETA.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblETA.IsDerivedStyle = true;
-			this.LblETA.Location = new System.Drawing.Point(153, -4);
+			this.LblETA.Location = new System.Drawing.Point(153, 0);
 			this.LblETA.Name = "LblETA";
-			this.LblETA.Size = new System.Drawing.Size(144, 42);
+			this.LblETA.Size = new System.Drawing.Size(144, 93);
 			this.LblETA.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblETA.StyleManager = null;
 			this.LblETA.TabIndex = 7;
@@ -151,9 +149,9 @@
 			this.LblAirlines.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblAirlines.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblAirlines.IsDerivedStyle = true;
-			this.LblAirlines.Location = new System.Drawing.Point(303, -4);
+			this.LblAirlines.Location = new System.Drawing.Point(303, 0);
 			this.LblAirlines.Name = "LblAirlines";
-			this.LblAirlines.Size = new System.Drawing.Size(144, 42);
+			this.LblAirlines.Size = new System.Drawing.Size(144, 93);
 			this.LblAirlines.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblAirlines.StyleManager = null;
 			this.LblAirlines.TabIndex = 6;
@@ -169,7 +167,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "UCRow";
 			this.Padding = new System.Windows.Forms.Padding(1);
-			this.Size = new System.Drawing.Size(904, 40);
+			this.Size = new System.Drawing.Size(904, 95);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 

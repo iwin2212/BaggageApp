@@ -1,4 +1,5 @@
 using System.Data;
+using BaggageApp.Erp;
 using MetroSet_UI.Forms;
 
 namespace BaggageApp
@@ -46,6 +47,8 @@ namespace BaggageApp
 
 				FLPRow.Controls.Add(uCRow);
 			}
+			var api = new ApiConnection();
+			api.Signin();
 		}
 
 		private void PnlRow_Paint(object sender, PaintEventArgs e)
