@@ -1,0 +1,7 @@
+D:\publish\luggage\BaggageApp.exe
+D:\publish\luggage\BaggageApp.dll
+D:\publish\luggage\BaggageApp.deps.json
+D:\publish\luggage\BaggageApp.runtimeconfig.json
+D:\publish\luggage\BaggageApp.pdb
+D:\publish\luggage\MetroSet UI.dll
+D:\publish\luggage\Newtonsoft.Json.dll

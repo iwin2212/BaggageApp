@@ -22,6 +22,10 @@ namespace BaggageApp.Utils
 		public IniFile(string IniPath = null)
 		{
 			Path = new FileInfo(IniPath ?? EXE + ".ini").FullName;
+			if (!File.Exists(Path))
+			{
+				File.Create(Path);
+			}
 		}
 
 		public string Read(string Key, string Section = null)

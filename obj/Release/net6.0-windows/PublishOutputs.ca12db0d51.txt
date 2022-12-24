@@ -1,0 +1,7 @@
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\BaggageApp.exe
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\BaggageApp.dll
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\BaggageApp.deps.json
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\BaggageApp.runtimeconfig.json
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\BaggageApp.pdb
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\MetroSet UI.dll
+D:\07.luggage\BaggageApp\bin\Release\net6.0-windows\app.publish\Newtonsoft.Json.dll

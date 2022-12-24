@@ -18,6 +18,8 @@ namespace BaggageApp
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			Settings.Initialize();
+
 			var dt = new DataTable();
 			dt.Columns.Add("STD");
 			dt.Columns.Add("ETA");
@@ -48,6 +50,7 @@ namespace BaggageApp
 				FLPRow.Controls.Add(uCRow);
 			}
 			var api = new ApiConnection();
+
 			api.Signin();
 		}
 
