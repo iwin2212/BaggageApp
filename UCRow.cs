@@ -17,10 +17,10 @@
 			get { return LblETA.Text; }
 			set { LblETA.Text = value; }
 		}
-		public string Airlines
+		public Image Airlines
 		{
-			get { return LblAirlines.Text; }
-			set { LblAirlines.Text = value; }
+			get { return PbAirlines.Image; }
+			set { PbAirlines.Image = value; }
 		}
 		public string FlightNo
 		{

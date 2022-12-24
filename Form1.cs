@@ -28,11 +28,12 @@ namespace BaggageApp
 
 			foreach (var item in flight)
 			{
+				var path = Settings.GetImagePath(item.FlightNo.Substring(0, 2));
 				var uCRow = new UCRow()
 				{
 					STD = item.ScheduledTime.Insert(2, ":"),
 					ETA = item.EstimatedTime.Insert(2, ":"),
-					Airlines = item.FlightNo,
+					Airlines = null,
 					FlightNo = item.FlightNo,
 					FlightTo = item.Route,
 				};
