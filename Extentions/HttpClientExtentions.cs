@@ -10,10 +10,10 @@ namespace BaggageApp.Extentions
 		{
 			var request = new HttpRequestMessage(HttpMethod.Get, url);
 			request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
+			
 			var response = await httpClient.SendAsync(request);
 			var responseBody = await response.Content.ReadAsStringAsync();
-			if (string.IsNullOrEmpty(responseBody)) return default;
+			if (string.IsNullOrEmpty(responseBody)) return (T) Convert.ChangeType(response.ReasonPhrase, typeof(T));
 			var jsonSerializerOptions = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
 			try
 			{
@@ -28,15 +28,18 @@ namespace BaggageApp.Extentions
 		public static async Task<T> PostAsync<T>(this HttpClient httpClient, string url, object data, string token)
 		{
 			var request = new HttpRequestMessage(HttpMethod.Post, url);
-			request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token); ;
+			request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
 			request.Content = new StringContent(JsonSerializer.Serialize(data),
 				Encoding.UTF8,
 				"application/json");
-
+			
 			var response = await httpClient.SendAsync(request);
 			var responseBody = await response.Content.ReadAsStringAsync();
-			if (string.IsNullOrEmpty(responseBody)) return default;
+			if (string.IsNullOrEmpty(responseBody))
+			{
+				return (T) Convert.ChangeType(response.ReasonPhrase, typeof(T));
+			}
 			var jsonSerializerOptions = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
 			try
 			{

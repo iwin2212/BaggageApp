@@ -139,7 +139,7 @@
 			this.metroSetLabel5.Style = MetroSet_UI.Enums.Style.Light;
 			this.metroSetLabel5.StyleManager = null;
 			this.metroSetLabel5.TabIndex = 16;
-			this.metroSetLabel5.Text = "Flight/To";
+			this.metroSetLabel5.Text = "From/To";
 			this.metroSetLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.metroSetLabel5.ThemeAuthor = "Narwin";
 			this.metroSetLabel5.ThemeName = "MetroLite";

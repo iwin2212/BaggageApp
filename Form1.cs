@@ -1,6 +1,9 @@
 using System.Data;
+using BaggageApp.Entities;
 using BaggageApp.Erp;
+using BaggageApp.Models;
 using MetroSet_UI.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace BaggageApp
 {
@@ -16,42 +19,28 @@ namespace BaggageApp
 
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
+		private async void Form1_Load(object sender, EventArgs e)
 		{
 			Settings.Initialize();
+			var api = new ApiConnection();
+			var data = await api.Flight2Belt();
+			var flight = JObject.Parse(data)["data"].ToObject<Flight[]>();
 
-			var dt = new DataTable();
-			dt.Columns.Add("STD");
-			dt.Columns.Add("ETA");
-			dt.Columns.Add("Airlines");
-			dt.Columns.Add("FlightNum");
-			dt.Columns.Add("FlightTo");
-
-			dt.Rows.Add(new object[] { "1030", "1855", "Vn", "BL6822", "BKK-HAN" });
-			dt.Rows.Add(new object[] { "1030", "1855", "Vn", "BL7000", "BKK-HAN" });
-			dt.Rows.Add(new object[] { "1030", "1855", "Vn", "BL8002", "BKK-HAN" });
-			dt.Rows.Add(new object[] { "1030", "1855", "Vn", "BL9022", "BKK-HAN" });
-			dt.Rows.Add(new object[] { "1030", "1855", "Vn", "BL1022", "BKK-HAN" });
-			dt.Rows.Add(new object[] { "1030", "1855", "Vn", "BL3322", "BKK-HAN" });
-
-			for (var i = 0; i < 6; i++)
+			foreach (var item in flight)
 			{
 				var uCRow = new UCRow()
 				{
-					STD = dt.Rows[i]["STD"].ToString(),
-					ETA = dt.Rows[i]["ETA"].ToString(),
-					Airlines = dt.Rows[i]["Airlines"].ToString(),
-					FlightNum = dt.Rows[i]["FlightNum"].ToString(),
-					FlightTo = dt.Rows[i]["FlightTo"].ToString(),
+					STD = item.ScheduledTime.Insert(2, ":"),
+					ETA = item.EstimatedTime.Insert(2, ":"),
+					Airlines = item.FlightNo,
+					FlightNo = item.FlightNo,
+					FlightTo = item.Route,
 				};
 				uCRow.Width = FLPRow.Width;
-				uCRow.Height = FLPRow.Height / 6;
+				uCRow.Height = FLPRow.Height / (flight.Length);
 
 				FLPRow.Controls.Add(uCRow);
 			}
-			var api = new ApiConnection();
-
-			api.Signin();
 		}
 
 		private void PnlRow_Paint(object sender, PaintEventArgs e)

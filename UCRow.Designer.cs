@@ -31,7 +31,7 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.LblFlightTo = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblUpdate = new MetroSet_UI.Controls.MetroSetLabel();
-			this.LblFlightNum = new MetroSet_UI.Controls.MetroSetLabel();
+			this.LblFlightNo = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblSTD = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblETA = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblAirlines = new MetroSet_UI.Controls.MetroSetLabel();
@@ -51,7 +51,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.Controls.Add(this.LblFlightTo, 4, 0);
 			this.tableLayoutPanel1.Controls.Add(this.LblUpdate, 5, 0);
-			this.tableLayoutPanel1.Controls.Add(this.LblFlightNum, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.LblFlightNo, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.LblSTD, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.LblETA, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.LblAirlines, 0, 0);
@@ -75,7 +75,7 @@
 			this.LblFlightTo.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightTo.StyleManager = null;
 			this.LblFlightTo.TabIndex = 16;
-			this.LblFlightTo.Text = "Flight/To";
+			this.LblFlightTo.Text = "From/To";
 			this.LblFlightTo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.LblFlightTo.ThemeAuthor = "Narwin";
 			this.LblFlightTo.ThemeName = "MetroLite";
@@ -96,21 +96,21 @@
 			this.LblUpdate.ThemeAuthor = "Narwin";
 			this.LblUpdate.ThemeName = "MetroLite";
 			// 
-			// LblFlightNum
+			// LblFlightNo
 			// 
-			this.LblFlightNum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblFlightNum.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.LblFlightNum.IsDerivedStyle = true;
-			this.LblFlightNum.Location = new System.Drawing.Point(453, 0);
-			this.LblFlightNum.Name = "LblFlightNum";
-			this.LblFlightNum.Size = new System.Drawing.Size(144, 93);
-			this.LblFlightNum.Style = MetroSet_UI.Enums.Style.Light;
-			this.LblFlightNum.StyleManager = null;
-			this.LblFlightNum.TabIndex = 9;
-			this.LblFlightNum.Text = "Flight";
-			this.LblFlightNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.LblFlightNum.ThemeAuthor = "Narwin";
-			this.LblFlightNum.ThemeName = "MetroLite";
+			this.LblFlightNo.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LblFlightNo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblFlightNo.IsDerivedStyle = true;
+			this.LblFlightNo.Location = new System.Drawing.Point(453, 0);
+			this.LblFlightNo.Name = "LblFlightNo";
+			this.LblFlightNo.Size = new System.Drawing.Size(144, 93);
+			this.LblFlightNo.Style = MetroSet_UI.Enums.Style.Light;
+			this.LblFlightNo.StyleManager = null;
+			this.LblFlightNo.TabIndex = 9;
+			this.LblFlightNo.Text = "Flight";
+			this.LblFlightNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.LblFlightNo.ThemeAuthor = "Narwin";
+			this.LblFlightNo.ThemeName = "MetroLite";
 			// 
 			// LblSTD
 			// 
@@ -178,7 +178,7 @@
 		private TableLayoutPanel tableLayoutPanel1;
 		private MetroSet_UI.Controls.MetroSetLabel LblFlightTo;
 		private MetroSet_UI.Controls.MetroSetLabel LblUpdate;
-		private MetroSet_UI.Controls.MetroSetLabel LblFlightNum;
+		private MetroSet_UI.Controls.MetroSetLabel LblFlightNo;
 		private MetroSet_UI.Controls.MetroSetLabel LblSTD;
 		private MetroSet_UI.Controls.MetroSetLabel LblETA;
 		private MetroSet_UI.Controls.MetroSetLabel LblAirlines;

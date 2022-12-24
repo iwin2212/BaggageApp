@@ -22,10 +22,10 @@
 			get { return LblAirlines.Text; }
 			set { LblAirlines.Text = value; }
 		}
-		public string FlightNum
+		public string FlightNo
 		{
-			get { return LblFlightNum.Text; }
-			set { LblFlightNum.Text = value; }
+			get { return LblFlightNo.Text; }
+			set { LblFlightNo.Text = value; }
 		}
 		public string FlightTo
 		{

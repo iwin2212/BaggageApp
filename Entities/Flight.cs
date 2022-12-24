@@ -2,10 +2,10 @@
 {
 	public class Flight
 	{
-		public DateTime STD { get; set; }
-		public DateTime ETA { get; set; }
-		public Image Airlines { get; set; }
-		public string FlightNum { get; set; }
-		public string FlightTo { get; set; }
+		public string FlightID { get; set; }
+		public string ScheduledTime { get; set; }
+		public string EstimatedTime { get; set; }
+		public string FlightNo { get; set; }
+		public string Route { get; set; }
 	}
 }
