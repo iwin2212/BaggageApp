@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.IO;
+using System.Net.NetworkInformation;
 using BaggageApp.Extentions;
 using BaggageApp.Utils;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -114,7 +115,7 @@ namespace BaggageApp.Erp
 
 		public static string GetImagePath(string imageName)
 		{
-			var imagePath = "../Stock/Airlines";
+			var imagePath = "Stock\\Airlines";
 
 			var path = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
 			var debug = Path.GetDirectoryName(path);
@@ -124,16 +125,25 @@ namespace BaggageApp.Erp
 			var sourceDir = Path.Combine(defaultPath, imagePath);
 			var targetDir = Path.Combine(path, imagePath);
 
-			Copy(sourceDir, targetDir);
+			if (!Directory.Exists(targetDir))
+			{
+				Copy(sourceDir, targetDir);
+			}
 
-			//foreach (string file in files)
-			//	Console.WriteLine(Path.GetFileName(file));
-			return imageName;
+			var files = Directory.GetFiles(targetDir);
+			foreach (string file in files)
+				if (Path.GetFileName(file).Contains(imageName))
+				{
+					return file;
+				}
+			return string.Empty;
 		}
 		private static void Copy(string sourceDir, string targetDir)
 		{
-			Directory.CreateDirectory(targetDir);
-
+			if (!Directory.Exists(targetDir))
+			{
+				Directory.CreateDirectory(targetDir);
+			}
 			foreach (var file in Directory.GetFiles(sourceDir))
 				File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
 

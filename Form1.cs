@@ -33,7 +33,7 @@ namespace BaggageApp
 				{
 					STD = item.ScheduledTime.Insert(2, ":"),
 					ETA = item.EstimatedTime.Insert(2, ":"),
-					Airlines = null,
+					Airlines = string.IsNullOrEmpty(path)?null:new Bitmap(path),
 					FlightNo = item.FlightNo,
 					FlightTo = item.Route,
 				};
