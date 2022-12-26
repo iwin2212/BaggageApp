@@ -1,4 +1,6 @@
-﻿namespace BaggageApp
+﻿using BaggageApp.Erp;
+
+namespace BaggageApp
 {
 	public partial class UCRow : UserControl
 	{
@@ -31,6 +33,18 @@
 		{
 			get { return LblFlightTo.Text; }
 			set { LblFlightTo.Text = value; }
+		}
+		public string Status
+		{
+			get { return LblStatus.Text; }
+			set { LblStatus.Text = value; }
+		}
+
+		private void BtnUpdate_Click(object sender, EventArgs e)
+		{
+			var FlightNo = LblFlightNo.Text;
+			var api = new ApiConnection();
+			var result = api.UpdateLuggageStatus("FirstBag", DateTime.Now.ToString("HH:mm"), DateTime.Now.ToString("yyyy-MM-dd"), FlightNo);
 		}
 	}
 }

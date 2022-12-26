@@ -2,6 +2,7 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Cryptography.Xml;
+using BaggageApp.Entities;
 using BaggageApp.Extentions;
 using BaggageApp.Models;
 using Newtonsoft.Json.Linq;
@@ -10,7 +11,7 @@ namespace BaggageApp.Erp
 {
 	public class ApiConnection
 	{
-		public async Task Signin()
+		public async Task<string> Signin()
 		{
 			try
 			{
@@ -25,14 +26,15 @@ namespace BaggageApp.Erp
 				var res = JObject.Parse(response);
 				var token = res["data"][0]["token"].ToString();
 				Settings.SaveToken(token);
+				return string.Empty;
 			}
 			catch (Exception ex)
 			{
-
+				return ex.Message;
 			}
 		}
 
-		public async Task RenewToken()
+		public async Task<string> RenewToken()
 		{
 			try
 			{
@@ -45,8 +47,12 @@ namespace BaggageApp.Erp
 				};
 				var response = await client.PostAsync<string>(Settings.GetRenewTokenURL(), payload, Settings.GetToken());
 				var res = JObject.Parse(response);
+				return string.Empty;
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				return ex.Message;
+			}
 		}
 
 		public async Task<string> Flight2Belt()
@@ -68,7 +74,8 @@ namespace BaggageApp.Erp
 					await Signin();
 				}
 				var response = await client.PostAsync<string>(Settings.GetFlight2BeltURl(), flightArrival, Settings.GetToken());
-				if (response == HttpStatusCode.Unauthorized.ToString()) {
+				if (response == HttpStatusCode.Unauthorized.ToString())
+				{
 					RenewToken();
 					response = await client.PostAsync<string>(Settings.GetFlight2BeltURl(), flightArrival, Settings.GetToken());
 				}
@@ -77,23 +84,33 @@ namespace BaggageApp.Erp
 			catch (Exception ex) { return ex.Message; }
 		}
 
-		public async Task UpdateLuggageStatus()
+		public async Task<string> UpdateLuggageStatus(string FieldName, string FieldValue, string FlightDate, string FlightNo)
 		{
 			try
 			{
 				using var client = new HttpClient();
 				var luggage = new Luggage()
 				{
-					FieldName = "",
-					FieldValue = "",
-					FlightDate = "",
-					FlightNo = ""
+					FieldName = FieldName,
+					FieldValue = FieldValue,
+					FlightDate = FlightDate,
+					FlightNo = FlightNo
 				};
-				var token = "";
-				var response = await client.PostAsync<string>(Settings.GetUpdateLuggageStatusURL(), luggage, token);
+				var response = await client.PostAsync<string>(Settings.GetUpdateLuggageStatusURL(), luggage, Settings.GetToken());
 				var res = JObject.Parse(response);
+				if (res["success"].ToString() == "false")
+				{
+					return res["message"].ToString();
+				}
+				else
+				{
+					return string.Empty;
+				}
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				return ex.Message;
+			}
 		}
 	}
 }

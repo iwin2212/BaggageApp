@@ -13,18 +13,12 @@ namespace BaggageApp.Erp
 			var myIni = new IniFile();
 			return myIni.GetValue("Url", "ws", "");
 		}
-		public static string GetApiUrl()
-		{
-			var myIni = new IniFile();
-			return myIni.GetValue("Url", "api", "");
-		}
 
 		public static void Initialize()
 		{
 			var myIni = new IniFile();
 			#region url
 			myIni.SetValue("Url", "ws", "https://ws.noibaiairport.org");
-			myIni.SetValue("Url", "api", "http://api.noibaiairport.org");
 			#endregion
 
 			#region user
@@ -110,7 +104,7 @@ namespace BaggageApp.Erp
 		}
 		public static string GetUpdateLuggageStatusURL()
 		{
-			return $"{GetApiUrl()}/FlightArrival/FlightByBelt";
+			return $"{GetWsUrl()}/WSSMIS8011";
 		}
 
 		public static string GetImagePath(string imageName)
