@@ -39,27 +39,37 @@ namespace BaggageApp
 			get { return LblStatus.Text; }
 			set { LblStatus.Text = value; }
 		}
+		public string Message
+		{
+			get { return LblMessage.Text; }
+			set { LblMessage.Text = value; }
+		}
 
-		private void BtnUpdate_Click(object sender, EventArgs e)
+		private async void BtnUpdate_Click(object sender, EventArgs e)
 		{
 			var FlightNo = LblFlightNo.Text;
 			var api = new ApiConnection();
 
-
 			if (string.IsNullOrEmpty(LblStatus.Text))
 			{
-				var firstBagResult = api.UpdateLuggageStatus("FirstBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+				var firstBagResult = await api.UpdateLuggageStatus("FirstBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+				LblMessage.Text = firstBagResult;
 			}
 			else
 			{
 				var status = LblStatus.Text.Split(';');
 				var firstBag = status[0].Split('=')[1].Trim();
-				var lastBag = status[1].Split('=')[1].Trim();
-				if (string.IsNullOrEmpty(lastBag))
+				if (!string.IsNullOrEmpty(firstBag) && status.Length == 1)
 				{
-					var lastBagResult = api.UpdateLuggageStatus("LastBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+					var lastBagResult = await api.UpdateLuggageStatus("LastBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+					LblMessage.Text = lastBagResult;
 				}
 			}
+		}
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }

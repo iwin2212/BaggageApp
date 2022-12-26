@@ -29,14 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.LblStatus = new System.Windows.Forms.Label();
 			this.LblFlightTo = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblSTD = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblETA = new MetroSet_UI.Controls.MetroSetLabel();
 			this.LblFlightNo = new MetroSet_UI.Controls.MetroSetLabel();
 			this.PbAirlines = new System.Windows.Forms.PictureBox();
 			this.BtnUpdate = new System.Windows.Forms.Button();
-			this.LblStatus = new System.Windows.Forms.Label();
 			this.LblResult = new System.Windows.Forms.Label();
+			this.LblMessage = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.PbAirlines)).BeginInit();
 			this.SuspendLayout();
@@ -59,17 +60,29 @@
 			this.tableLayoutPanel1.Controls.Add(this.LblFlightNo, 3, 0);
 			this.tableLayoutPanel1.Controls.Add(this.PbAirlines, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.BtnUpdate, 5, 0);
-			this.tableLayoutPanel1.Controls.Add(this.LblResult, 5, 1);
+			this.tableLayoutPanel1.Controls.Add(this.LblResult, 4, 1);
+			this.tableLayoutPanel1.Controls.Add(this.LblMessage, 5, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 87);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 90);
 			this.tableLayoutPanel1.TabIndex = 1;
+			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+			// 
+			// LblStatus
+			// 
+			this.LblStatus.AutoSize = true;
+			this.LblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LblStatus.ForeColor = System.Drawing.Color.Black;
+			this.LblStatus.Location = new System.Drawing.Point(3, 60);
+			this.LblStatus.Name = "LblStatus";
+			this.LblStatus.Size = new System.Drawing.Size(144, 30);
+			this.LblStatus.TabIndex = 20;
 			// 
 			// LblFlightTo
 			// 
@@ -78,7 +91,7 @@
 			this.LblFlightTo.IsDerivedStyle = true;
 			this.LblFlightTo.Location = new System.Drawing.Point(603, 0);
 			this.LblFlightTo.Name = "LblFlightTo";
-			this.LblFlightTo.Size = new System.Drawing.Size(144, 67);
+			this.LblFlightTo.Size = new System.Drawing.Size(144, 60);
 			this.LblFlightTo.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightTo.StyleManager = null;
 			this.LblFlightTo.TabIndex = 16;
@@ -92,9 +105,9 @@
 			this.LblSTD.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblSTD.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblSTD.IsDerivedStyle = true;
-			this.LblSTD.Location = new System.Drawing.Point(3, 0);
+			this.LblSTD.Location = new System.Drawing.Point(153, 0);
 			this.LblSTD.Name = "LblSTD";
-			this.LblSTD.Size = new System.Drawing.Size(144, 67);
+			this.LblSTD.Size = new System.Drawing.Size(144, 60);
 			this.LblSTD.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblSTD.StyleManager = null;
 			this.LblSTD.TabIndex = 8;
@@ -108,9 +121,9 @@
 			this.LblETA.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LblETA.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblETA.IsDerivedStyle = true;
-			this.LblETA.Location = new System.Drawing.Point(153, 0);
+			this.LblETA.Location = new System.Drawing.Point(3, 0);
 			this.LblETA.Name = "LblETA";
-			this.LblETA.Size = new System.Drawing.Size(144, 67);
+			this.LblETA.Size = new System.Drawing.Size(144, 60);
 			this.LblETA.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblETA.StyleManager = null;
 			this.LblETA.TabIndex = 7;
@@ -126,7 +139,7 @@
 			this.LblFlightNo.IsDerivedStyle = true;
 			this.LblFlightNo.Location = new System.Drawing.Point(453, 0);
 			this.LblFlightNo.Name = "LblFlightNo";
-			this.LblFlightNo.Size = new System.Drawing.Size(144, 67);
+			this.LblFlightNo.Size = new System.Drawing.Size(144, 60);
 			this.LblFlightNo.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightNo.StyleManager = null;
 			this.LblFlightNo.TabIndex = 9;
@@ -138,9 +151,9 @@
 			// PbAirlines
 			// 
 			this.PbAirlines.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.PbAirlines.Location = new System.Drawing.Point(303, 3);
+			this.PbAirlines.Location = new System.Drawing.Point(303, 5);
 			this.PbAirlines.Name = "PbAirlines";
-			this.PbAirlines.Size = new System.Drawing.Size(144, 61);
+			this.PbAirlines.Size = new System.Drawing.Size(144, 50);
 			this.PbAirlines.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.PbAirlines.TabIndex = 17;
 			this.PbAirlines.TabStop = false;
@@ -151,7 +164,7 @@
 			this.BtnUpdate.AutoSize = true;
 			this.BtnUpdate.BackColor = System.Drawing.Color.LightSkyBlue;
 			this.BtnUpdate.ForeColor = System.Drawing.Color.Black;
-			this.BtnUpdate.Location = new System.Drawing.Point(788, 19);
+			this.BtnUpdate.Location = new System.Drawing.Point(788, 16);
 			this.BtnUpdate.Name = "BtnUpdate";
 			this.BtnUpdate.Size = new System.Drawing.Size(76, 28);
 			this.BtnUpdate.TabIndex = 18;
@@ -159,23 +172,24 @@
 			this.BtnUpdate.UseVisualStyleBackColor = false;
 			this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
 			// 
-			// LblStatus
-			// 
-			this.LblStatus.AutoSize = true;
-			this.LblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblStatus.ForeColor = System.Drawing.Color.Black;
-			this.LblStatus.Location = new System.Drawing.Point(3, 67);
-			this.LblStatus.Name = "LblStatus";
-			this.LblStatus.Size = new System.Drawing.Size(144, 20);
-			this.LblStatus.TabIndex = 20;
-			// 
 			// LblResult
 			// 
 			this.LblResult.AutoSize = true;
-			this.LblResult.Location = new System.Drawing.Point(753, 67);
+			this.LblResult.Location = new System.Drawing.Point(603, 60);
 			this.LblResult.Name = "LblResult";
 			this.LblResult.Size = new System.Drawing.Size(0, 15);
 			this.LblResult.TabIndex = 21;
+			// 
+			// LblMessage
+			// 
+			this.LblMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.LblMessage.AutoSize = true;
+			this.LblMessage.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblMessage.ForeColor = System.Drawing.Color.Black;
+			this.LblMessage.Location = new System.Drawing.Point(826, 68);
+			this.LblMessage.Name = "LblMessage";
+			this.LblMessage.Size = new System.Drawing.Size(0, 13);
+			this.LblMessage.TabIndex = 22;
 			// 
 			// UCRow
 			// 
@@ -184,7 +198,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "UCRow";
 			this.Padding = new System.Windows.Forms.Padding(1);
-			this.Size = new System.Drawing.Size(904, 89);
+			this.Size = new System.Drawing.Size(904, 92);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.PbAirlines)).EndInit();
@@ -203,5 +217,6 @@
 		private Button BtnUpdate;
 		private Label LblStatus;
 		private Label LblResult;
+		private Label LblMessage;
 	}
 }

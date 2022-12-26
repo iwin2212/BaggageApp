@@ -98,14 +98,7 @@ namespace BaggageApp.Erp
 				};
 				var response = await client.PostAsync<string>(Settings.GetUpdateLuggageStatusURL(), luggage, Settings.GetToken());
 				var res = JObject.Parse(response);
-				if (res["success"].ToString() == "false")
-				{
-					return res["message"].ToString();
-				}
-				else
-				{
-					return string.Empty;
-				}
+				return res["message"].ToString();
 			}
 			catch (Exception ex)
 			{
