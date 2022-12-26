@@ -58,7 +58,7 @@ namespace BaggageApp
 							FlightTo = item.Route,
 							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"FirstBag = {item.FirstBag.Insert(2, ":")}" : "") +
 										(!string.IsNullOrEmpty(item.LastBag) ? $" ; LastBag = {item.LastBag.Insert(2, ":")}" : ""),
-							Message = (!string.IsNullOrEmpty(item.LastBag) ? $"Cập nhật FirstBag chuyến {item.FlightNo} thành công" : (!string.IsNullOrEmpty(item.FirstBag) ? $"Cập nhật LastBag chuyến {item.FlightNo} thành công" : "")),
+							Message = (!string.IsNullOrEmpty(item.LastBag) ? $"FirstBag chuyến {item.FlightNo} đã cập nhật" : (!string.IsNullOrEmpty(item.FirstBag) ? $"LastBag chuyến {item.FlightNo} đã cập nhật" : "")),
 						};
 						uCRow.Width = FLPRow.Width;
 						uCRow.Height = FLPRow.Height / (flight.Length);

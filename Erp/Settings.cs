@@ -40,7 +40,6 @@ namespace BaggageApp.Erp
 		{
 			foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
 			{
-				// Only consider Ethernet network interfaces
 				if (nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet &&
 					nic.OperationalStatus == OperationalStatus.Up)
 				{
