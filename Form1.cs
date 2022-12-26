@@ -9,6 +9,7 @@ namespace BaggageApp
 {
 	public partial class Form1 : MetroSetForm
 	{
+		System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
 		public Form1()
 		{
 			InitializeComponent();
@@ -19,19 +20,25 @@ namespace BaggageApp
 
 		}
 
-		private async void Form1_Load(object sender, EventArgs e)
+		private void Form1_Load(object sender, EventArgs e)
 		{
+			GetData2Form();
 			Settings.Initialize();
-			while (true)
-			{
-				await GetData2Form();
-				Task.Delay(TimeSpan.FromSeconds(30)).Wait();
-			}
+
+			timer1.Interval = 60000;
+			timer1.Tick += new System.EventHandler(timer1_Tick);
+			timer1.Start();
 		}
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			GetData2Form();
+		}
+
 		private async Task GetData2Form()
 		{
 			try
 			{
+				FLPRow.Controls.Clear();
 				var api = new ApiConnection();
 				var data = await api.Flight2Belt();
 				var flight = JObject.Parse(data)["data"].ToObject<Flight[]>();
