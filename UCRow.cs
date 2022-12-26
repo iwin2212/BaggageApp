@@ -44,16 +44,21 @@ namespace BaggageApp
 		{
 			var FlightNo = LblFlightNo.Text;
 			var api = new ApiConnection();
-			var status = LblStatus.Text.Split(';');
-			var firstBag = status[0].Split('=')[1].Trim();
-			var lastBag = status[1].Split('=')[1].Trim();
-			if (string.IsNullOrEmpty(firstBag))
+
+
+			if (string.IsNullOrEmpty(LblStatus.Text))
 			{
 				var firstBagResult = api.UpdateLuggageStatus("FirstBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
 			}
-			else if(string.IsNullOrEmpty(lastBag))
+			else
 			{
-				var lastBagResult = api.UpdateLuggageStatus("LastBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+				var status = LblStatus.Text.Split(';');
+				var firstBag = status[0].Split('=')[1].Trim();
+				var lastBag = status[1].Split('=')[1].Trim();
+				if (string.IsNullOrEmpty(lastBag))
+				{
+					var lastBagResult = api.UpdateLuggageStatus("LastBag", DateTime.Now.AddDays(-1).ToString("HH:mm"), DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+				}
 			}
 		}
 	}

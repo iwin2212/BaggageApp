@@ -56,7 +56,7 @@ namespace BaggageApp
 							FlightNo = item.FlightNo,
 							FlightTo = item.Route,
 							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"Bắt đầu = {item.FirstBag.Insert(2, ":")}" : "") +
-										(!string.IsNullOrEmpty(item.FirstBag) ? $" ; Kết thúc = {item.LastBag.Insert(2, ":")}" : "")
+										(!string.IsNullOrEmpty(item.LastBag) ? $" ; Kết thúc = {item.LastBag.Insert(2, ":")}" : "")
 						};
 						uCRow.Width = FLPRow.Width;
 						uCRow.Height = FLPRow.Height / (flight.Length);
