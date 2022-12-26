@@ -45,7 +45,7 @@ namespace BaggageApp
 				if (flight == null) return;
 				foreach (var item in flight)
 				{
-					if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
+					//if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
 					{
 						var path = Settings.GetImagePath(item.FlightNo.Substring(0, 2));
 						var uCRow = new UCRow()
@@ -55,8 +55,8 @@ namespace BaggageApp
 							Airlines = string.IsNullOrEmpty(path) ? null : new Bitmap(path),
 							FlightNo = item.FlightNo,
 							FlightTo = item.Route,
-							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"FirstBag = {item.FirstBag}" : "") +
-										(!string.IsNullOrEmpty(item.FirstBag) ? $"LastBag = {item.LastBag}" : "")
+							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"Bắt đầu = {item.FirstBag.Insert(2, ":")}" : "") + " ; " +
+										(!string.IsNullOrEmpty(item.FirstBag) ? $"Kết thúc = {item.LastBag.Insert(2, ":")}" : "")
 						};
 						uCRow.Width = FLPRow.Width;
 						uCRow.Height = FLPRow.Height / (flight.Length);
