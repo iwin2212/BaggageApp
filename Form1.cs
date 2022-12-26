@@ -38,11 +38,11 @@ namespace BaggageApp
 		{
 			try
 			{
-				FLPRow.Controls.Clear();
 				var api = new ApiConnection();
 				var data = await api.Flight2Belt();
 				var flight = JObject.Parse(data)["data"].ToObject<Flight[]>();
 				if (flight == null) return;
+				FLPRow.Controls.Clear();
 				foreach (var item in flight)
 				{
 					//if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
@@ -55,8 +55,8 @@ namespace BaggageApp
 							Airlines = string.IsNullOrEmpty(path) ? null : new Bitmap(path),
 							FlightNo = item.FlightNo,
 							FlightTo = item.Route,
-							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"Bắt đầu = {item.FirstBag.Insert(2, ":")}" : "") + " ; " +
-										(!string.IsNullOrEmpty(item.FirstBag) ? $"Kết thúc = {item.LastBag.Insert(2, ":")}" : "")
+							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"Bắt đầu = {item.FirstBag.Insert(2, ":")}" : "") +
+										(!string.IsNullOrEmpty(item.FirstBag) ? $" ; Kết thúc = {item.LastBag.Insert(2, ":")}" : "")
 						};
 						uCRow.Width = FLPRow.Width;
 						uCRow.Height = FLPRow.Height / (flight.Length);
