@@ -197,11 +197,11 @@
 			// 
 			// UCRow
 			// 
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
 			this.BackColor = System.Drawing.Color.AntiqueWhite;
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.ForeColor = System.Drawing.Color.White;
-			this.MinimumSize = new System.Drawing.Size(0, 150);
+			this.MinimumSize = new System.Drawing.Size(0, 140);
 			this.Name = "UCRow";
 			this.Size = new System.Drawing.Size(904, 150);
 			this.tableLayoutPanel1.ResumeLayout(false);
