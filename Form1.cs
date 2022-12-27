@@ -24,10 +24,10 @@ namespace BaggageApp
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			SetStartup();
-			GetData2Form();
 			Settings.Initialize();
+			GetData2Form();
 			
-			timer1.Interval = 60000;
+			timer1.Interval = 30000;
 			timer1.Tick += new System.EventHandler(timer1_Tick);
 			timer1.Start();
 		}
@@ -55,10 +55,13 @@ namespace BaggageApp
 				var cnt = 0;
 				foreach (var item in flight)
 				{
-					if (FLPRow.Controls.Count > 6) break;
+					if (FLPRow.Controls.Count > 6) return;
 					//if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
 					{
 						var path = Settings.GetImagePath(item.FlightNo.Substring(0, 2));
+						var isFirstBag = !string.IsNullOrEmpty(item.FirstBag);
+						var isLastBag = !string.IsNullOrEmpty(item.LastBag);
+
 						var uCRow = new UCRow()
 						{
 							STD = item.ScheduledTime.Insert(2, ":"),
@@ -66,9 +69,11 @@ namespace BaggageApp
 							Airlines = string.IsNullOrEmpty(path) ? null : new Bitmap(path),
 							FlightNo = item.FlightNo,
 							FlightTo = item.Route,
-							Status = (!string.IsNullOrEmpty(item.FirstBag) ? $"FirstBag = {item.FirstBag.Insert(2, ":")}" : "") +
-										(!string.IsNullOrEmpty(item.LastBag) ? $" ; LastBag = {item.LastBag.Insert(2, ":")}" : ""),
-							Message = (!string.IsNullOrEmpty(item.LastBag) ? $"FirstBag chuyến {item.FlightNo} đã cập nhật" : (!string.IsNullOrEmpty(item.FirstBag) ? $"LastBag chuyến {item.FlightNo} đã cập nhật" : "")),
+							Status = (isFirstBag ? $"FirstBag = {item.FirstBag.Insert(2, ":")}" : "") +
+										(isLastBag ? $" ; LastBag = {item.LastBag.Insert(2, ":")}" : ""),
+							Message = (isLastBag ? $"FirstBag chuyến {item.FlightNo} đã cập nhật" : (isFirstBag ? $"LastBag chuyến {item.FlightNo} đã cập nhật" : "")),
+							BtnUpdateText = isFirstBag?"Kết thúc":"Bắt đầu",
+							BtnUpdateDisabled = isLastBag?false:true,
 						};
 						uCRow.Width = FLPRow.Width;
 						uCRow.Height = FLPRow.Height / (flight.Length);

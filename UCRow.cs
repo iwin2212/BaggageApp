@@ -44,6 +44,16 @@ namespace BaggageApp
 			get { return LblMessage.Text; }
 			set { LblMessage.Text = value; }
 		}
+		public string BtnUpdateText
+		{
+			get { return BtnUpdate.Text; }
+			set { BtnUpdate.Text = value; }
+		}
+		public bool BtnUpdateDisabled
+		{
+			get { return BtnUpdate.Enabled; }
+			set { BtnUpdate.Enabled = value; BtnUpdate.BackColor = value ? Color.DodgerBlue : Color.Silver; }
+		}
 
 		public Color tablePanel
 		{

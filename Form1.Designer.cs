@@ -87,7 +87,6 @@
 			// flightTo
 			// 
 			this.flightTo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flightTo.ForeColor = Color.White;
 			this.flightTo.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.flightTo.IsDerivedStyle = true;
 			this.flightTo.Location = new System.Drawing.Point(603, 0);
@@ -104,7 +103,6 @@
 			// flight
 			// 
 			this.flight.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flight.ForeColor = Color.White;
 			this.flight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.flight.IsDerivedStyle = true;
 			this.flight.Location = new System.Drawing.Point(453, 0);
@@ -121,7 +119,6 @@
 			// update
 			// 
 			this.update.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.update.ForeColor = Color.White;
 			this.update.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.update.IsDerivedStyle = true;
 			this.update.Location = new System.Drawing.Point(750, 0);
@@ -139,7 +136,6 @@
 			// Airline
 			// 
 			this.Airline.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Airline.ForeColor = Color.White;
 			this.Airline.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.Airline.IsDerivedStyle = true;
 			this.Airline.Location = new System.Drawing.Point(303, 0);
@@ -157,7 +153,6 @@
 			// STD
 			// 
 			this.STD.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.STD.ForeColor = Color.White;
 			this.STD.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.STD.IsDerivedStyle = true;
 			this.STD.Location = new System.Drawing.Point(3, 0);
@@ -175,7 +170,6 @@
 			// ETA
 			// 
 			this.ETA.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ETA.ForeColor =   Color.White;
 			this.ETA.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.ETA.IsDerivedStyle = true;
 			this.ETA.Location = new System.Drawing.Point(153, 0);
@@ -205,8 +199,9 @@
 			// 
 			// FLPRow
 			// 
-			this.FLPRow.AutoSize = true;
-			this.FLPRow.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.FLPRow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.FLPRow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.FLPRow.Location = new System.Drawing.Point(0, 0);
 			this.FLPRow.Margin = new System.Windows.Forms.Padding(0);
@@ -237,7 +232,6 @@
 			this.DgvTitle.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.PnlRow.ResumeLayout(false);
-			this.PnlRow.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

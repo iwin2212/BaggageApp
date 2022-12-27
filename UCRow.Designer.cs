@@ -70,7 +70,7 @@
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(904, 150);
 			this.tableLayoutPanel1.TabIndex = 1;
 			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -88,7 +88,7 @@
 			// LblFlightTo
 			// 
 			this.LblFlightTo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblFlightTo.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblFlightTo.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblFlightTo.IsDerivedStyle = true;
 			this.LblFlightTo.Location = new System.Drawing.Point(603, 0);
 			this.LblFlightTo.Name = "LblFlightTo";
@@ -104,7 +104,7 @@
 			// LblETA
 			// 
 			this.LblETA.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblETA.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblETA.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblETA.IsDerivedStyle = true;
 			this.LblETA.Location = new System.Drawing.Point(153, 0);
 			this.LblETA.Name = "LblETA";
@@ -120,7 +120,7 @@
 			// LblSTD
 			// 
 			this.LblSTD.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblSTD.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblSTD.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblSTD.IsDerivedStyle = true;
 			this.LblSTD.Location = new System.Drawing.Point(3, 0);
 			this.LblSTD.Name = "LblSTD";
@@ -136,7 +136,7 @@
 			// LblFlightNo
 			// 
 			this.LblFlightNo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblFlightNo.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblFlightNo.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblFlightNo.IsDerivedStyle = true;
 			this.LblFlightNo.Location = new System.Drawing.Point(453, 0);
 			this.LblFlightNo.Name = "LblFlightNo";
@@ -165,7 +165,7 @@
 			this.BtnUpdate.AutoSize = true;
 			this.BtnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
 			this.BtnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BtnUpdate.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.BtnUpdate.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.BtnUpdate.ForeColor = System.Drawing.Color.White;
 			this.BtnUpdate.Location = new System.Drawing.Point(753, 3);
 			this.BtnUpdate.Name = "BtnUpdate";
