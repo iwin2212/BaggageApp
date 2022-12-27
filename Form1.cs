@@ -26,7 +26,7 @@ namespace BaggageApp
 			SetStartup();
 			Settings.Initialize();
 			GetData2Form();
-			
+			LblBelt.Text = Settings.GetBelt();
 			timer1.Interval = 30000;
 			timer1.Tick += new System.EventHandler(timer1_Tick);
 			timer1.Start();
@@ -56,7 +56,7 @@ namespace BaggageApp
 				foreach (var item in flight)
 				{
 					if (FLPRow.Controls.Count > 5) return;
-					//if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
+					if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
 					{
 						var path = Settings.GetImagePath(item.FlightNo.Substring(0, 2));
 						var isFirstBag = !string.IsNullOrEmpty(item.FirstBag);
@@ -110,6 +110,11 @@ namespace BaggageApp
 		}
 
 		private void metroSetLabel1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
 		{
 
 		}

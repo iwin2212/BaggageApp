@@ -27,8 +27,8 @@ namespace BaggageApp.Erp
 			#endregion
 
 			#region FlightArrival
-			myIni.SetValue("FlightArrival", "terminal", "T1");
-			myIni.SetValue("FlightArrival", "belt", "1");
+			myIni.SetValue("FlightArrival", "terminal", "T2");
+			myIni.SetValue("FlightArrival", "belt", "2");
 			#endregion
 
 			#region Stock
