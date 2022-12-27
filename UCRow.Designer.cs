@@ -79,6 +79,7 @@
 			// 
 			this.LblStatus.AutoSize = true;
 			this.LblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LblStatus.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblStatus.ForeColor = System.Drawing.Color.White;
 			this.LblStatus.Location = new System.Drawing.Point(3, 120);
 			this.LblStatus.Name = "LblStatus";
