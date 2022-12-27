@@ -47,12 +47,12 @@
 			this.tableLayoutPanel1.BackColor = System.Drawing.Color.Black;
 			this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.tableLayoutPanel1.ColumnCount = 6;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
 			this.tableLayoutPanel1.Controls.Add(this.LblStatus, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.LblFlightTo, 4, 0);
 			this.tableLayoutPanel1.Controls.Add(this.LblETA, 0, 0);
@@ -70,7 +70,6 @@
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(904, 150);
 			this.tableLayoutPanel1.TabIndex = 1;
 			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -83,17 +82,17 @@
 			this.LblStatus.ForeColor = System.Drawing.Color.White;
 			this.LblStatus.Location = new System.Drawing.Point(3, 120);
 			this.LblStatus.Name = "LblStatus";
-			this.LblStatus.Size = new System.Drawing.Size(144, 30);
+			this.LblStatus.Size = new System.Drawing.Size(120, 30);
 			this.LblStatus.TabIndex = 20;
 			// 
 			// LblFlightTo
 			// 
 			this.LblFlightTo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblFlightTo.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblFlightTo.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblFlightTo.IsDerivedStyle = true;
-			this.LblFlightTo.Location = new System.Drawing.Point(603, 0);
+			this.LblFlightTo.Location = new System.Drawing.Point(543, 0);
 			this.LblFlightTo.Name = "LblFlightTo";
-			this.LblFlightTo.Size = new System.Drawing.Size(144, 120);
+			this.LblFlightTo.Size = new System.Drawing.Size(174, 120);
 			this.LblFlightTo.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightTo.StyleManager = null;
 			this.LblFlightTo.TabIndex = 16;
@@ -105,11 +104,11 @@
 			// LblETA
 			// 
 			this.LblETA.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblETA.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblETA.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblETA.IsDerivedStyle = true;
-			this.LblETA.Location = new System.Drawing.Point(153, 0);
+			this.LblETA.Location = new System.Drawing.Point(129, 0);
 			this.LblETA.Name = "LblETA";
-			this.LblETA.Size = new System.Drawing.Size(144, 120);
+			this.LblETA.Size = new System.Drawing.Size(120, 120);
 			this.LblETA.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblETA.StyleManager = null;
 			this.LblETA.TabIndex = 8;
@@ -121,11 +120,11 @@
 			// LblSTD
 			// 
 			this.LblSTD.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblSTD.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblSTD.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblSTD.IsDerivedStyle = true;
 			this.LblSTD.Location = new System.Drawing.Point(3, 0);
 			this.LblSTD.Name = "LblSTD";
-			this.LblSTD.Size = new System.Drawing.Size(144, 120);
+			this.LblSTD.Size = new System.Drawing.Size(120, 120);
 			this.LblSTD.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblSTD.StyleManager = null;
 			this.LblSTD.TabIndex = 7;
@@ -137,11 +136,11 @@
 			// LblFlightNo
 			// 
 			this.LblFlightNo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblFlightNo.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.LblFlightNo.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblFlightNo.IsDerivedStyle = true;
-			this.LblFlightNo.Location = new System.Drawing.Point(453, 0);
+			this.LblFlightNo.Location = new System.Drawing.Point(399, 0);
 			this.LblFlightNo.Name = "LblFlightNo";
-			this.LblFlightNo.Size = new System.Drawing.Size(144, 120);
+			this.LblFlightNo.Size = new System.Drawing.Size(138, 120);
 			this.LblFlightNo.Style = MetroSet_UI.Enums.Style.Light;
 			this.LblFlightNo.StyleManager = null;
 			this.LblFlightNo.TabIndex = 9;
@@ -154,9 +153,9 @@
 			// 
 			this.PbAirlines.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.PbAirlines.ForeColor = System.Drawing.Color.White;
-			this.PbAirlines.Location = new System.Drawing.Point(303, 3);
+			this.PbAirlines.Location = new System.Drawing.Point(255, 3);
 			this.PbAirlines.Name = "PbAirlines";
-			this.PbAirlines.Size = new System.Drawing.Size(144, 114);
+			this.PbAirlines.Size = new System.Drawing.Size(138, 114);
 			this.PbAirlines.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.PbAirlines.TabIndex = 17;
 			this.PbAirlines.TabStop = false;
@@ -166,11 +165,11 @@
 			this.BtnUpdate.AutoSize = true;
 			this.BtnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
 			this.BtnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BtnUpdate.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.BtnUpdate.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.BtnUpdate.ForeColor = System.Drawing.Color.White;
-			this.BtnUpdate.Location = new System.Drawing.Point(753, 3);
+			this.BtnUpdate.Location = new System.Drawing.Point(723, 3);
 			this.BtnUpdate.Name = "BtnUpdate";
-			this.BtnUpdate.Size = new System.Drawing.Size(148, 114);
+			this.BtnUpdate.Size = new System.Drawing.Size(178, 114);
 			this.BtnUpdate.TabIndex = 18;
 			this.BtnUpdate.Text = "Bắt đầu";
 			this.BtnUpdate.UseVisualStyleBackColor = false;
@@ -180,7 +179,7 @@
 			// 
 			this.LblResult.AutoSize = true;
 			this.LblResult.ForeColor = System.Drawing.Color.White;
-			this.LblResult.Location = new System.Drawing.Point(603, 120);
+			this.LblResult.Location = new System.Drawing.Point(543, 120);
 			this.LblResult.Name = "LblResult";
 			this.LblResult.Size = new System.Drawing.Size(0, 15);
 			this.LblResult.TabIndex = 21;
@@ -191,7 +190,7 @@
 			this.LblMessage.AutoSize = true;
 			this.LblMessage.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.LblMessage.ForeColor = System.Drawing.Color.White;
-			this.LblMessage.Location = new System.Drawing.Point(827, 125);
+			this.LblMessage.Location = new System.Drawing.Point(812, 125);
 			this.LblMessage.Name = "LblMessage";
 			this.LblMessage.Size = new System.Drawing.Size(0, 19);
 			this.LblMessage.TabIndex = 22;
