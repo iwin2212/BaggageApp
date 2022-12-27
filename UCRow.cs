@@ -12,12 +12,12 @@ namespace BaggageApp
 		public string STD
 		{
 			get { return LblSTD.Text; }
-			set { LblSTD.Text = value; }
+			set { LblSTD.Text = value; LblSTD.ForeColor = Color.White; }
 		}
 		public string ETA
 		{
 			get { return LblETA.Text; }
-			set { LblETA.Text = value; }
+			set { LblETA.Text = value; LblETA.ForeColor = Color.Gold; }
 		}
 		public Image Airlines
 		{
@@ -27,12 +27,12 @@ namespace BaggageApp
 		public string FlightNo
 		{
 			get { return LblFlightNo.Text; }
-			set { LblFlightNo.Text = value; }
+			set { LblFlightNo.Text = value; LblFlightNo.ForeColor = Color.White; }
 		}
 		public string FlightTo
 		{
 			get { return LblFlightTo.Text; }
-			set { LblFlightTo.Text = value; }
+			set { LblFlightTo.Text = value; LblFlightTo.ForeColor = Color.White; }
 		}
 		public string Status
 		{
@@ -45,6 +45,11 @@ namespace BaggageApp
 			set { LblMessage.Text = value; }
 		}
 
+		public Color tablePanel
+		{
+			get { return tableLayoutPanel1.BackColor; }
+			set { tableLayoutPanel1.BackColor = value; }
+		}
 		private async void BtnUpdate_Click(object sender, EventArgs e)
 		{
 			var FlightNo = LblFlightNo.Text;

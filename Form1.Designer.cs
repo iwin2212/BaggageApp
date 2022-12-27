@@ -31,17 +31,11 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.DgvTitle = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.metroSetLabel4 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel3 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel5 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel10 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel11 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel9 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel8 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel7 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel6 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel2 = new MetroSet_UI.Controls.MetroSetLabel();
-			this.metroSetLabel1 = new MetroSet_UI.Controls.MetroSetLabel();
+			this.flightTo = new MetroSet_UI.Controls.MetroSetLabel();
+			this.flight = new MetroSet_UI.Controls.MetroSetLabel();
+			this.update = new MetroSet_UI.Controls.MetroSetLabel();
+			this.Airline = new MetroSet_UI.Controls.MetroSetLabel();
+			this.STD = new MetroSet_UI.Controls.MetroSetLabel();
 			this.ETA = new MetroSet_UI.Controls.MetroSetLabel();
 			this.PnlRow = new System.Windows.Forms.Panel();
 			this.FLPRow = new System.Windows.Forms.FlowLayoutPanel();
@@ -72,23 +66,17 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel4, 4, 0);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel3, 3, 0);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel5, 4, 1);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel10, 5, 1);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel11, 5, 0);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel9, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel8, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel7, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel6, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel2, 2, 0);
-			this.tableLayoutPanel1.Controls.Add(this.metroSetLabel1, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.flightTo, 4, 0);
+			this.tableLayoutPanel1.Controls.Add(this.flight, 3, 0);
+			this.tableLayoutPanel1.Controls.Add(this.update, 5, 0);
+			this.tableLayoutPanel1.Controls.Add(this.Airline, 2, 0);
+			this.tableLayoutPanel1.Controls.Add(this.STD, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.ETA, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -96,192 +84,103 @@
 			this.tableLayoutPanel1.TabIndex = 0;
 			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
 			// 
-			// metroSetLabel4
+			// flightTo
 			// 
-			this.metroSetLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel4.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel4.IsDerivedStyle = true;
-			this.metroSetLabel4.Location = new System.Drawing.Point(603, 0);
-			this.metroSetLabel4.Name = "metroSetLabel4";
-			this.metroSetLabel4.Size = new System.Drawing.Size(144, 46);
-			this.metroSetLabel4.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel4.StyleManager = null;
-			this.metroSetLabel4.TabIndex = 18;
-			this.metroSetLabel4.Text = "Chuyến bay";
-			this.metroSetLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel4.ThemeAuthor = "Narwin";
-			this.metroSetLabel4.ThemeName = "MetroLite";
+			this.flightTo.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flightTo.ForeColor = Color.White;
+			this.flightTo.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.flightTo.IsDerivedStyle = true;
+			this.flightTo.Location = new System.Drawing.Point(603, 0);
+			this.flightTo.Name = "flightTo";
+			this.flightTo.Size = new System.Drawing.Size(144, 88);
+			this.flightTo.Style = MetroSet_UI.Enums.Style.Light;
+			this.flightTo.StyleManager = null;
+			this.flightTo.TabIndex = 18;
+			this.flightTo.Text = "Chuyến bay";
+			this.flightTo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.flightTo.ThemeAuthor = "Narwin";
+			this.flightTo.ThemeName = "MetroLite";
 			// 
-			// metroSetLabel3
+			// flight
 			// 
-			this.metroSetLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel3.IsDerivedStyle = true;
-			this.metroSetLabel3.Location = new System.Drawing.Point(453, 0);
-			this.metroSetLabel3.Name = "metroSetLabel3";
-			this.metroSetLabel3.Size = new System.Drawing.Size(144, 46);
-			this.metroSetLabel3.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel3.StyleManager = null;
-			this.metroSetLabel3.TabIndex = 17;
-			this.metroSetLabel3.Text = "Chuyến bay";
-			this.metroSetLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel3.ThemeAuthor = "Narwin";
-			this.metroSetLabel3.ThemeName = "MetroLite";
+			this.flight.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flight.ForeColor = Color.White;
+			this.flight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.flight.IsDerivedStyle = true;
+			this.flight.Location = new System.Drawing.Point(453, 0);
+			this.flight.Name = "flight";
+			this.flight.Size = new System.Drawing.Size(144, 88);
+			this.flight.Style = MetroSet_UI.Enums.Style.Light;
+			this.flight.StyleManager = null;
+			this.flight.TabIndex = 17;
+			this.flight.Text = "Chuyến bay";
+			this.flight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.flight.ThemeAuthor = "Narwin";
+			this.flight.ThemeName = "MetroLite";
 			// 
-			// metroSetLabel5
+			// update
 			// 
-			this.metroSetLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel5.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel5.IsDerivedStyle = true;
-			this.metroSetLabel5.Location = new System.Drawing.Point(603, 46);
-			this.metroSetLabel5.Name = "metroSetLabel5";
-			this.metroSetLabel5.Size = new System.Drawing.Size(144, 42);
-			this.metroSetLabel5.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel5.StyleManager = null;
-			this.metroSetLabel5.TabIndex = 16;
-			this.metroSetLabel5.Text = "From/To";
-			this.metroSetLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel5.ThemeAuthor = "Narwin";
-			this.metroSetLabel5.ThemeName = "MetroLite";
+			this.update.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.update.ForeColor = Color.White;
+			this.update.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.update.IsDerivedStyle = true;
+			this.update.Location = new System.Drawing.Point(750, 0);
+			this.update.Margin = new System.Windows.Forms.Padding(0);
+			this.update.Name = "update";
+			this.update.Size = new System.Drawing.Size(152, 88);
+			this.update.Style = MetroSet_UI.Enums.Style.Light;
+			this.update.StyleManager = null;
+			this.update.TabIndex = 13;
+			this.update.Text = "Cập nhật";
+			this.update.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.update.ThemeAuthor = "Narwin";
+			this.update.ThemeName = "MetroLite";
 			// 
-			// metroSetLabel10
+			// Airline
 			// 
-			this.metroSetLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel10.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel10.IsDerivedStyle = true;
-			this.metroSetLabel10.Location = new System.Drawing.Point(753, 46);
-			this.metroSetLabel10.Name = "metroSetLabel10";
-			this.metroSetLabel10.Size = new System.Drawing.Size(146, 42);
-			this.metroSetLabel10.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel10.StyleManager = null;
-			this.metroSetLabel10.TabIndex = 14;
-			this.metroSetLabel10.Text = "Update";
-			this.metroSetLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel10.ThemeAuthor = "Narwin";
-			this.metroSetLabel10.ThemeName = "MetroLite";
+			this.Airline.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Airline.ForeColor = Color.White;
+			this.Airline.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.Airline.IsDerivedStyle = true;
+			this.Airline.Location = new System.Drawing.Point(303, 0);
+			this.Airline.Name = "Airline";
+			this.Airline.Size = new System.Drawing.Size(144, 88);
+			this.Airline.Style = MetroSet_UI.Enums.Style.Light;
+			this.Airline.StyleManager = null;
+			this.Airline.TabIndex = 2;
+			this.Airline.Text = "Hãng";
+			this.Airline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.Airline.ThemeAuthor = "Narwin";
+			this.Airline.ThemeName = "MetroLite";
+			this.Airline.Click += new System.EventHandler(this.metroSetLabel2_Click);
 			// 
-			// metroSetLabel11
+			// STD
 			// 
-			this.metroSetLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel11.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel11.IsDerivedStyle = true;
-			this.metroSetLabel11.Location = new System.Drawing.Point(753, 0);
-			this.metroSetLabel11.Name = "metroSetLabel11";
-			this.metroSetLabel11.Size = new System.Drawing.Size(146, 46);
-			this.metroSetLabel11.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel11.StyleManager = null;
-			this.metroSetLabel11.TabIndex = 13;
-			this.metroSetLabel11.Text = "Cập nhật";
-			this.metroSetLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel11.ThemeAuthor = "Narwin";
-			this.metroSetLabel11.ThemeName = "MetroLite";
-			// 
-			// metroSetLabel9
-			// 
-			this.metroSetLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel9.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel9.IsDerivedStyle = true;
-			this.metroSetLabel9.Location = new System.Drawing.Point(153, 46);
-			this.metroSetLabel9.Name = "metroSetLabel9";
-			this.metroSetLabel9.Size = new System.Drawing.Size(144, 42);
-			this.metroSetLabel9.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel9.StyleManager = null;
-			this.metroSetLabel9.TabIndex = 9;
-			this.metroSetLabel9.Text = "Estimate";
-			this.metroSetLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel9.ThemeAuthor = "Narwin";
-			this.metroSetLabel9.ThemeName = "MetroLite";
-			// 
-			// metroSetLabel8
-			// 
-			this.metroSetLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel8.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel8.IsDerivedStyle = true;
-			this.metroSetLabel8.Location = new System.Drawing.Point(303, 46);
-			this.metroSetLabel8.Name = "metroSetLabel8";
-			this.metroSetLabel8.Size = new System.Drawing.Size(144, 42);
-			this.metroSetLabel8.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel8.StyleManager = null;
-			this.metroSetLabel8.TabIndex = 8;
-			this.metroSetLabel8.Text = "Airlines";
-			this.metroSetLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel8.ThemeAuthor = "Narwin";
-			this.metroSetLabel8.ThemeName = "MetroLite";
-			// 
-			// metroSetLabel7
-			// 
-			this.metroSetLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel7.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel7.IsDerivedStyle = true;
-			this.metroSetLabel7.Location = new System.Drawing.Point(453, 46);
-			this.metroSetLabel7.Name = "metroSetLabel7";
-			this.metroSetLabel7.Size = new System.Drawing.Size(144, 42);
-			this.metroSetLabel7.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel7.StyleManager = null;
-			this.metroSetLabel7.TabIndex = 7;
-			this.metroSetLabel7.Text = "Flight";
-			this.metroSetLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel7.ThemeAuthor = "Narwin";
-			this.metroSetLabel7.ThemeName = "MetroLite";
-			// 
-			// metroSetLabel6
-			// 
-			this.metroSetLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel6.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel6.IsDerivedStyle = true;
-			this.metroSetLabel6.Location = new System.Drawing.Point(3, 46);
-			this.metroSetLabel6.Name = "metroSetLabel6";
-			this.metroSetLabel6.Size = new System.Drawing.Size(144, 42);
-			this.metroSetLabel6.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel6.StyleManager = null;
-			this.metroSetLabel6.TabIndex = 6;
-			this.metroSetLabel6.Text = "Schedule";
-			this.metroSetLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel6.ThemeAuthor = "Narwin";
-			this.metroSetLabel6.ThemeName = "MetroLite";
-			// 
-			// metroSetLabel2
-			// 
-			this.metroSetLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel2.IsDerivedStyle = true;
-			this.metroSetLabel2.Location = new System.Drawing.Point(303, 0);
-			this.metroSetLabel2.Name = "metroSetLabel2";
-			this.metroSetLabel2.Size = new System.Drawing.Size(144, 46);
-			this.metroSetLabel2.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel2.StyleManager = null;
-			this.metroSetLabel2.TabIndex = 2;
-			this.metroSetLabel2.Text = "Hãng";
-			this.metroSetLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel2.ThemeAuthor = "Narwin";
-			this.metroSetLabel2.ThemeName = "MetroLite";
-			this.metroSetLabel2.Click += new System.EventHandler(this.metroSetLabel2_Click);
-			// 
-			// metroSetLabel1
-			// 
-			this.metroSetLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.metroSetLabel1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.metroSetLabel1.IsDerivedStyle = true;
-			this.metroSetLabel1.Location = new System.Drawing.Point(3, 0);
-			this.metroSetLabel1.Name = "metroSetLabel1";
-			this.metroSetLabel1.Size = new System.Drawing.Size(144, 46);
-			this.metroSetLabel1.Style = MetroSet_UI.Enums.Style.Light;
-			this.metroSetLabel1.StyleManager = null;
-			this.metroSetLabel1.TabIndex = 1;
-			this.metroSetLabel1.Text = "Lịch bay";
-			this.metroSetLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroSetLabel1.ThemeAuthor = "Narwin";
-			this.metroSetLabel1.ThemeName = "MetroLite";
-			this.metroSetLabel1.Click += new System.EventHandler(this.metroSetLabel1_Click);
+			this.STD.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.STD.ForeColor = Color.White;
+			this.STD.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.STD.IsDerivedStyle = true;
+			this.STD.Location = new System.Drawing.Point(3, 0);
+			this.STD.Name = "STD";
+			this.STD.Size = new System.Drawing.Size(144, 88);
+			this.STD.Style = MetroSet_UI.Enums.Style.Light;
+			this.STD.StyleManager = null;
+			this.STD.TabIndex = 1;
+			this.STD.Text = "Lịch bay";
+			this.STD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.STD.ThemeAuthor = "Narwin";
+			this.STD.ThemeName = "MetroLite";
+			this.STD.Click += new System.EventHandler(this.metroSetLabel1_Click);
 			// 
 			// ETA
 			// 
 			this.ETA.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ETA.ForeColor =   Color.White;
 			this.ETA.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.ETA.IsDerivedStyle = true;
 			this.ETA.Location = new System.Drawing.Point(153, 0);
 			this.ETA.Name = "ETA";
-			this.ETA.Size = new System.Drawing.Size(144, 46);
+			this.ETA.Size = new System.Drawing.Size(144, 88);
 			this.ETA.Style = MetroSet_UI.Enums.Style.Light;
 			this.ETA.StyleManager = null;
 			this.ETA.TabIndex = 0;
@@ -347,19 +246,13 @@
 
 		private Panel DgvTitle;
 		private TableLayoutPanel tableLayoutPanel1;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel9;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel8;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel7;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel6;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel2;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel1;
+		private MetroSet_UI.Controls.MetroSetLabel Airline;
+		private MetroSet_UI.Controls.MetroSetLabel STD;
 		private MetroSet_UI.Controls.MetroSetLabel ETA;
 		private Panel PnlRow;
 		private FlowLayoutPanel FLPRow;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel4;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel3;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel5;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel10;
-		private MetroSet_UI.Controls.MetroSetLabel metroSetLabel11;
+		private MetroSet_UI.Controls.MetroSetLabel flightTo;
+		private MetroSet_UI.Controls.MetroSetLabel flight;
+		private MetroSet_UI.Controls.MetroSetLabel update;
 	}
 }
