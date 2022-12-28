@@ -23,7 +23,6 @@ namespace BaggageApp.Erp
 				};
 				var response = await client.PostAsync<string>(Settings.GetSignInURL(), user, "");
 				var res = JObject.Parse(response);
-				Logger.Log($"Signin - response: {JsonConvert.SerializeObject(response)}");
 				var token = res["data"][0]["token"].ToString();
 				Settings.SaveToken(token);
 				return string.Empty;
@@ -78,7 +77,6 @@ namespace BaggageApp.Erp
 					await Signin();
 				}
 				var response = await client.PostAsync<string>(Settings.GetFlight2BeltURl(), flightArrival, Settings.GetToken());
-				Logger.Log($"Flight2Belt - response: {JsonConvert.SerializeObject(response)}");
 				if (response == HttpStatusCode.Unauthorized.ToString())
 				{
 					RenewToken();
@@ -106,7 +104,6 @@ namespace BaggageApp.Erp
 					FlightNo = FlightNo
 				};
 				var response = await client.PostAsync<string>(Settings.GetUpdateLuggageStatusURL(), luggage, Settings.GetToken());
-				Logger.Log($"UpdateLuggageStatus - response: {JsonConvert.SerializeObject(response)}");
 				var res = JObject.Parse(response);
 				return res["message"].ToString();
 			}
@@ -127,7 +124,8 @@ namespace BaggageApp.Erp
 				var res = JObject.Parse(response);
 				var stringTime = res["serverTime"].ToString();
 				var serverTime = DateTimeOffset.Parse(stringTime, CultureInfo.InvariantCulture);
-				return serverTime.DateTime;
+				Logger.Log($"GetServerTime - serverTime: {serverTime.UtcDateTime.AddHours(+7)}");
+				return serverTime.UtcDateTime.AddHours(+7);
 			}
 			catch (Exception ex)
 			{
