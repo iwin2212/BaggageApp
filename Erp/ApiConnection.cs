@@ -127,7 +127,6 @@ namespace BaggageApp.Erp
 				var res = JObject.Parse(response);
 				var stringTime = res["serverTime"].ToString();
 				var serverTime = DateTimeOffset.Parse(stringTime, CultureInfo.InvariantCulture);
-				Logger.Log($"GetServerTime - serverTime: {serverTime.DateTime}");
 				return serverTime.DateTime;
 			}
 			catch (Exception ex)

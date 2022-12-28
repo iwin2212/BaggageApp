@@ -96,7 +96,6 @@ namespace BaggageApp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"GetData2Form: {ex.StackTrace}");
 				Logger.Log($"GetData2Form: {ex.Message}");
 			}
 		}
