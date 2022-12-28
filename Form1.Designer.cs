@@ -30,6 +30,10 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.DgvTitle = new System.Windows.Forms.Panel();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.LblServerTime = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.LblBelt = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.flightTo = new MetroSet_UI.Controls.MetroSetLabel();
 			this.flight = new MetroSet_UI.Controls.MetroSetLabel();
@@ -39,10 +43,8 @@
 			this.ETA = new MetroSet_UI.Controls.MetroSetLabel();
 			this.PnlRow = new System.Windows.Forms.Panel();
 			this.FLPRow = new System.Windows.Forms.FlowLayoutPanel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.LblBelt = new System.Windows.Forms.Label();
-			this.LblServerTime = new System.Windows.Forms.Label();
 			this.DgvTitle.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.PnlRow.SuspendLayout();
 			this.SuspendLayout();
@@ -51,12 +53,74 @@
 			// 
 			this.DgvTitle.BackColor = System.Drawing.SystemColors.MenuHighlight;
 			this.DgvTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.DgvTitle.Controls.Add(this.tableLayoutPanel2);
 			this.DgvTitle.Controls.Add(this.tableLayoutPanel1);
 			this.DgvTitle.Dock = System.Windows.Forms.DockStyle.Top;
 			this.DgvTitle.Location = new System.Drawing.Point(14, 60);
 			this.DgvTitle.Name = "DgvTitle";
 			this.DgvTitle.Size = new System.Drawing.Size(904, 90);
 			this.DgvTitle.TabIndex = 0;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+			this.tableLayoutPanel2.ColumnCount = 3;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.Controls.Add(this.LblServerTime, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.LblBelt, 1, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(902, 42);
+			this.tableLayoutPanel2.TabIndex = 1;
+			// 
+			// LblServerTime
+			// 
+			this.LblServerTime.AutoSize = true;
+			this.LblServerTime.BackColor = System.Drawing.Color.Black;
+			this.LblServerTime.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LblServerTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.LblServerTime.ForeColor = System.Drawing.Color.Gold;
+			this.LblServerTime.Location = new System.Drawing.Point(289, 0);
+			this.LblServerTime.Name = "LblServerTime";
+			this.LblServerTime.Size = new System.Drawing.Size(610, 42);
+			this.LblServerTime.TabIndex = 4;
+			this.LblServerTime.Text = "Time";
+			this.LblServerTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.label1.ForeColor = System.Drawing.Color.Black;
+			this.label1.Location = new System.Drawing.Point(3, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(234, 42);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "Băng tải / Bag belt";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LblBelt
+			// 
+			this.LblBelt.AutoSize = true;
+			this.LblBelt.BackColor = System.Drawing.Color.Gainsboro;
+			this.LblBelt.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LblBelt.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.LblBelt.ForeColor = System.Drawing.Color.Black;
+			this.LblBelt.Location = new System.Drawing.Point(243, 0);
+			this.LblBelt.Name = "LblBelt";
+			this.LblBelt.Size = new System.Drawing.Size(40, 42);
+			this.LblBelt.TabIndex = 3;
+			this.LblBelt.Text = "1";
+			this.LblBelt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.LblBelt.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -75,13 +139,13 @@
 			this.tableLayoutPanel1.Controls.Add(this.Airline, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.STD, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.ETA, 1, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 42);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 88);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 46);
 			this.tableLayoutPanel1.TabIndex = 0;
 			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
 			// 
@@ -92,7 +156,7 @@
 			this.flightTo.IsDerivedStyle = true;
 			this.flightTo.Location = new System.Drawing.Point(543, 0);
 			this.flightTo.Name = "flightTo";
-			this.flightTo.Size = new System.Drawing.Size(174, 88);
+			this.flightTo.Size = new System.Drawing.Size(174, 46);
 			this.flightTo.Style = MetroSet_UI.Enums.Style.Light;
 			this.flightTo.StyleManager = null;
 			this.flightTo.TabIndex = 18;
@@ -108,7 +172,7 @@
 			this.flight.IsDerivedStyle = true;
 			this.flight.Location = new System.Drawing.Point(399, 0);
 			this.flight.Name = "flight";
-			this.flight.Size = new System.Drawing.Size(138, 88);
+			this.flight.Size = new System.Drawing.Size(138, 46);
 			this.flight.Style = MetroSet_UI.Enums.Style.Light;
 			this.flight.StyleManager = null;
 			this.flight.TabIndex = 17;
@@ -125,7 +189,7 @@
 			this.update.Location = new System.Drawing.Point(720, 0);
 			this.update.Margin = new System.Windows.Forms.Padding(0);
 			this.update.Name = "update";
-			this.update.Size = new System.Drawing.Size(182, 88);
+			this.update.Size = new System.Drawing.Size(182, 46);
 			this.update.Style = MetroSet_UI.Enums.Style.Light;
 			this.update.StyleManager = null;
 			this.update.TabIndex = 13;
@@ -141,7 +205,7 @@
 			this.Airline.IsDerivedStyle = true;
 			this.Airline.Location = new System.Drawing.Point(255, 0);
 			this.Airline.Name = "Airline";
-			this.Airline.Size = new System.Drawing.Size(138, 88);
+			this.Airline.Size = new System.Drawing.Size(138, 46);
 			this.Airline.Style = MetroSet_UI.Enums.Style.Light;
 			this.Airline.StyleManager = null;
 			this.Airline.TabIndex = 2;
@@ -158,7 +222,7 @@
 			this.STD.IsDerivedStyle = true;
 			this.STD.Location = new System.Drawing.Point(3, 0);
 			this.STD.Name = "STD";
-			this.STD.Size = new System.Drawing.Size(120, 88);
+			this.STD.Size = new System.Drawing.Size(120, 46);
 			this.STD.Style = MetroSet_UI.Enums.Style.Light;
 			this.STD.StyleManager = null;
 			this.STD.TabIndex = 1;
@@ -175,7 +239,7 @@
 			this.ETA.IsDerivedStyle = true;
 			this.ETA.Location = new System.Drawing.Point(129, 0);
 			this.ETA.Name = "ETA";
-			this.ETA.Size = new System.Drawing.Size(120, 88);
+			this.ETA.Size = new System.Drawing.Size(120, 46);
 			this.ETA.Style = MetroSet_UI.Enums.Style.Light;
 			this.ETA.StyleManager = null;
 			this.ETA.TabIndex = 0;
@@ -208,42 +272,6 @@
 			this.FLPRow.Size = new System.Drawing.Size(904, 261);
 			this.FLPRow.TabIndex = 0;
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label1.ForeColor = System.Drawing.Color.Black;
-			this.label1.Location = new System.Drawing.Point(37, 14);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(234, 32);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Băng tải / Bag belt";
-			// 
-			// LblBelt
-			// 
-			this.LblBelt.AutoSize = true;
-			this.LblBelt.BackColor = System.Drawing.Color.Silver;
-			this.LblBelt.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.LblBelt.ForeColor = System.Drawing.Color.Black;
-			this.LblBelt.Location = new System.Drawing.Point(270, 4);
-			this.LblBelt.Name = "LblBelt";
-			this.LblBelt.Size = new System.Drawing.Size(46, 54);
-			this.LblBelt.TabIndex = 3;
-			this.LblBelt.Text = "1";
-			this.LblBelt.Click += new System.EventHandler(this.label2_Click);
-			// 
-			// LblServerTime
-			// 
-			this.LblServerTime.AutoSize = true;
-			this.LblServerTime.BackColor = System.Drawing.Color.Black;
-			this.LblServerTime.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.LblServerTime.ForeColor = System.Drawing.Color.Gold;
-			this.LblServerTime.Location = new System.Drawing.Point(688, 3);
-			this.LblServerTime.Name = "LblServerTime";
-			this.LblServerTime.Size = new System.Drawing.Size(116, 54);
-			this.LblServerTime.TabIndex = 4;
-			this.LblServerTime.Text = "Time";
-			// 
 			// Form1
 			// 
 			this.AllowResize = false;
@@ -253,9 +281,6 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(932, 426);
 			this.ControlBox = false;
-			this.Controls.Add(this.LblServerTime);
-			this.Controls.Add(this.LblBelt);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.PnlRow);
 			this.Controls.Add(this.DgvTitle);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -268,10 +293,11 @@
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.DgvTitle.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.PnlRow.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -290,5 +316,6 @@
 		private Label label1;
 		private Label LblBelt;
 		private Label LblServerTime;
+		private TableLayoutPanel tableLayoutPanel2;
 	}
 }
