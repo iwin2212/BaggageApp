@@ -1,12 +1,9 @@
 ﻿using System.Globalization;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Security.Cryptography.Xml;
-using BaggageApp.Entities;
 using BaggageApp.Extentions;
 using BaggageApp.Models;
 using BaggageApp.Utils;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BaggageApp.Erp
@@ -26,6 +23,7 @@ namespace BaggageApp.Erp
 				};
 				var response = await client.PostAsync<string>(Settings.GetSignInURL(), user, "");
 				var res = JObject.Parse(response);
+				Logger.Log($"Signin - response: {JsonConvert.SerializeObject(response)}");
 				var token = res["data"][0]["token"].ToString();
 				Settings.SaveToken(token);
 				return string.Empty;
@@ -73,12 +71,14 @@ namespace BaggageApp.Erp
 					ArrDep = "A",
 					Belt = Settings.GetBelt(),
 				};
+				Logger.Log($"Flight2Belt - flightArrival: {JsonConvert.SerializeObject(flightArrival)}");
 				var token = Settings.GetToken();
 				if (string.IsNullOrEmpty(token))
 				{
 					await Signin();
 				}
 				var response = await client.PostAsync<string>(Settings.GetFlight2BeltURl(), flightArrival, Settings.GetToken());
+				Logger.Log($"Flight2Belt - response: {JsonConvert.SerializeObject(response)}");
 				if (response == HttpStatusCode.Unauthorized.ToString())
 				{
 					RenewToken();
@@ -106,6 +106,7 @@ namespace BaggageApp.Erp
 					FlightNo = FlightNo
 				};
 				var response = await client.PostAsync<string>(Settings.GetUpdateLuggageStatusURL(), luggage, Settings.GetToken());
+				Logger.Log($"UpdateLuggageStatus - response: {JsonConvert.SerializeObject(response)}");
 				var res = JObject.Parse(response);
 				return res["message"].ToString();
 			}
@@ -122,9 +123,11 @@ namespace BaggageApp.Erp
 			{
 				using var client = new HttpClient();
 				var response = await client.GetAsync<string>(Settings.GetServerTimeURL(), Settings.GetToken());
+				Logger.Log($"GetServerTime - serverTime: {JsonConvert.SerializeObject(response)}");
 				var res = JObject.Parse(response);
 				var stringTime = res["serverTime"].ToString();
 				var serverTime = DateTimeOffset.Parse(stringTime, CultureInfo.InvariantCulture);
+				Logger.Log($"GetServerTime - serverTime: {serverTime.DateTime}");
 				return serverTime.DateTime;
 			}
 			catch (Exception ex)

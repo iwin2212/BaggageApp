@@ -1,11 +1,8 @@
-﻿using System.IO;
-using System.Windows.Forms;
-using BaggageApp.Entities;
+﻿using BaggageApp.Entities;
 using BaggageApp.Erp;
 using BaggageApp.Utils;
 using MetroSet_UI.Forms;
 using Microsoft.Win32;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BaggageApp
@@ -76,7 +73,6 @@ namespace BaggageApp
 						var path = Settings.GetImagePath(item.FlightNo.Substring(0, 2));
 						var isFirstBag = !string.IsNullOrEmpty(item.FirstBag);
 						var isLastBag = !string.IsNullOrEmpty(item.LastBag);
-
 						var uCRow = new UCRow()
 						{
 							STD = item.ScheduledTime.Insert(2, ":"),
@@ -100,6 +96,7 @@ namespace BaggageApp
 			}
 			catch (Exception ex)
 			{
+				Logger.Log($"GetData2Form: {ex.StackTrace}");
 				Logger.Log($"GetData2Form: {ex.Message}");
 			}
 		}
