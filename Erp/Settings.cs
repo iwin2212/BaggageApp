@@ -49,7 +49,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"Initialize: {ex.Message}");
+				//Logger.Log($"Initialize: {ex.Message}");
 			}
 		}
 
@@ -145,7 +145,7 @@ namespace BaggageApp.Erp
 			}
 			catch(Exception ex)
 			{
-				Logger.Log($"GetImagePath: {ex.Message}");
+				//Logger.Log($"GetImagePath: {ex.Message}");
 				return string.Empty;
 			}
 		}

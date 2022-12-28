@@ -29,7 +29,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"Signin: {ex.Message}");
+				//Logger.Log($"Signin: {ex.Message}");
 				return ex.Message;
 			}
 		}
@@ -51,7 +51,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"RenewToken: {ex.Message}");
+				//Logger.Log($"RenewToken: {ex.Message}");
 				return ex.Message;
 			}
 		}
@@ -70,7 +70,7 @@ namespace BaggageApp.Erp
 					ArrDep = "A",
 					Belt = Settings.GetBelt(),
 				};
-				Logger.Log($"Flight2Belt - flightArrival: {JsonConvert.SerializeObject(flightArrival)}");
+				//Logger.Log($"Flight2Belt - flightArrival: {JsonConvert.SerializeObject(flightArrival)}");
 				var token = Settings.GetToken();
 				if (string.IsNullOrEmpty(token))
 				{
@@ -86,7 +86,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"Flight2Belt: {ex.Message}");
+				//Logger.Log($"Flight2Belt: {ex.Message}");
 				return ex.Message;
 			}
 		}
@@ -109,7 +109,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"UpdateLuggageStatus: {ex.Message}");
+				//Logger.Log($"UpdateLuggageStatus: {ex.Message}");
 				return ex.Message;
 			}
 		}
@@ -120,16 +120,16 @@ namespace BaggageApp.Erp
 			{
 				using var client = new HttpClient();
 				var response = await client.GetAsync<string>(Settings.GetServerTimeURL(), Settings.GetToken());
-				Logger.Log($"GetServerTime - serverTime: {JsonConvert.SerializeObject(response)}");
+				//Logger.Log($"GetServerTime - serverTime: {JsonConvert.SerializeObject(response)}");
 				var res = JObject.Parse(response);
 				var stringTime = res["serverTime"].ToString();
 				var serverTime = DateTimeOffset.Parse(stringTime, CultureInfo.InvariantCulture);
-				Logger.Log($"GetServerTime - serverTime: {serverTime.UtcDateTime.AddHours(+7)}");
+				//Logger.Log($"GetServerTime - serverTime: {serverTime.UtcDateTime.AddHours(+7)}");
 				return serverTime.UtcDateTime.AddHours(+7);
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"GetServerTime: {ex.Message}");
+				//Logger.Log($"GetServerTime: {ex.Message}");
 				return null;
 			}
 		}

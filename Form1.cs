@@ -46,7 +46,7 @@ namespace BaggageApp
 		{
 			var key = Registry.CurrentUser.OpenSubKey(StartupKey, true);
 			key.SetValue(StartupValue, Application.ExecutablePath.ToString());
-			Logger.Log("Set the application to run at startup");
+			//Logger.Log("Set the application to run at startup");
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace BaggageApp
 			}
 			catch (Exception ex)
 			{
-				Logger.Log($"GetData2Form: {ex.Message}");
+				//Logger.Log($"GetData2Form: {ex.Message}");
 			}
 		}
 
