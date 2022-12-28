@@ -6,6 +6,7 @@ using System.Security.Cryptography.Xml;
 using BaggageApp.Entities;
 using BaggageApp.Extentions;
 using BaggageApp.Models;
+using BaggageApp.Utils;
 using Newtonsoft.Json.Linq;
 
 namespace BaggageApp.Erp
@@ -31,6 +32,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
+				Logger.Log($"Signin: {ex.Message}");
 				return ex.Message;
 			}
 		}
@@ -52,6 +54,7 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
+				Logger.Log($"RenewToken: {ex.Message}");
 				return ex.Message;
 			}
 		}
@@ -64,8 +67,8 @@ namespace BaggageApp.Erp
 				using var client = new HttpClient();
 				var flightArrival = new FlightArrival()
 				{
-					FromDate = now.AddHours(-5),
-					ToDate = now.AddHours(+5),
+					FromDate = (DateTime) (now?.AddHours(-5)),
+					ToDate = (DateTime) (now?.AddHours(+5)),
 					Terminal = Settings.GetTerminal(),
 					ArrDep = "A",
 					Belt = Settings.GetBelt(),
@@ -83,7 +86,11 @@ namespace BaggageApp.Erp
 				}
 				return response;
 			}
-			catch (Exception ex) { return ex.Message; }
+			catch (Exception ex)
+			{
+				Logger.Log($"Flight2Belt: {ex.Message}");
+				return ex.Message;
+			}
 		}
 
 		public async Task<string> UpdateLuggageStatus(string FieldName, string FieldValue, string FlightDate, string FlightNo)
@@ -104,11 +111,12 @@ namespace BaggageApp.Erp
 			}
 			catch (Exception ex)
 			{
+				Logger.Log($"UpdateLuggageStatus: {ex.Message}");
 				return ex.Message;
 			}
 		}
 
-		public async Task<DateTime> GetServerTime()
+		public async Task<DateTime?> GetServerTime()
 		{
 			try
 			{
@@ -119,9 +127,10 @@ namespace BaggageApp.Erp
 				var serverTime = DateTimeOffset.Parse(stringTime, CultureInfo.InvariantCulture);
 				return serverTime.DateTime;
 			}
-			catch
+			catch (Exception ex)
 			{
-				return await GetServerTime();
+				Logger.Log($"GetServerTime: {ex.Message}");
+				return null;
 			}
 		}
 	}

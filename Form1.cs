@@ -1,8 +1,11 @@
-﻿using System.Windows.Forms;
+﻿using System.IO;
+using System.Windows.Forms;
 using BaggageApp.Entities;
 using BaggageApp.Erp;
+using BaggageApp.Utils;
 using MetroSet_UI.Forms;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BaggageApp
@@ -39,14 +42,14 @@ namespace BaggageApp
 		{
 			var api = new ApiConnection();
 			var serverTime = await api.GetServerTime();
-			LblServerTime.Text = serverTime.ToString("dd/MM/yyyy HH:mm");
+			LblServerTime.Text = serverTime?.ToString("dd/MM/yyyy HH:mm");
 		}
 
 		private static void SetStartup()
 		{
-			//Set the application to run at startup
 			var key = Registry.CurrentUser.OpenSubKey(StartupKey, true);
 			key.SetValue(StartupValue, Application.ExecutablePath.ToString());
+			Logger.Log("Set the application to run at startup");
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
@@ -97,7 +100,7 @@ namespace BaggageApp
 			}
 			catch (Exception ex)
 			{
-
+				Logger.Log($"GetData2Form: {ex.Message}");
 			}
 		}
 

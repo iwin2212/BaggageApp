@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using BaggageApp.Extentions;
 using BaggageApp.Utils;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -16,35 +17,42 @@ namespace BaggageApp.Erp
 
 		public static void Initialize()
 		{
-			var myIni = new IniFile();
-			#region url
-			if (string.IsNullOrEmpty(myIni.GetValue("Url", "ws", "")))
+			try
 			{
-				myIni.SetValue("Url", "ws", "https://ws.noibaiairport.org");
-			}
-			#endregion
+				var myIni = new IniFile();
+				#region url
+				if (string.IsNullOrEmpty(myIni.GetValue("Url", "ws", "")))
+				{
+					myIni.SetValue("Url", "ws", "https://ws.noibaiairport.org");
+				}
+				#endregion
 
-			#region user
-			if (string.IsNullOrEmpty(myIni.GetValue("User", "usr", "")))
-			{
-				myIni.SetValue("User", "usr", Encryption.Encrypt("bags.api"));
-			}
-			if (string.IsNullOrEmpty(myIni.GetValue("User", "pwd", "")))
-			{
-				myIni.SetValue("User", "pwd", Encryption.Encrypt("4sRS!K78_Q0w"));
-			}
-			#endregion
+				#region user
+				if (string.IsNullOrEmpty(myIni.GetValue("User", "usr", "")))
+				{
+					myIni.SetValue("User", "usr", Encryption.Encrypt("bags.api"));
+				}
+				if (string.IsNullOrEmpty(myIni.GetValue("User", "pwd", "")))
+				{
+					myIni.SetValue("User", "pwd", Encryption.Encrypt("4sRS!K78_Q0w"));
+				}
+				#endregion
 
-			#region FlightArrival
-			if (string.IsNullOrEmpty(myIni.GetValue("FlightArrival", "terminal", "")))
-			{
-				myIni.SetValue("FlightArrival", "terminal", "T2");
+				#region FlightArrival
+				if (string.IsNullOrEmpty(myIni.GetValue("FlightArrival", "terminal", "")))
+				{
+					myIni.SetValue("FlightArrival", "terminal", "T2");
+				}
+				if (string.IsNullOrEmpty(myIni.GetValue("FlightArrival", "belt", "")))
+				{
+					myIni.SetValue("FlightArrival", "belt", "2");
+				}
+				#endregion
 			}
-			if (string.IsNullOrEmpty(myIni.GetValue("FlightArrival", "belt", "")))
+			catch (Exception ex)
 			{
-				myIni.SetValue("FlightArrival", "belt", "2");
+				Logger.Log($"Initialize: {ex.Message}");
 			}
-			#endregion
 		}
 
 		public static string GetMacAddress()
@@ -123,28 +131,25 @@ namespace BaggageApp.Erp
 
 		public static string GetImagePath(string imageName)
 		{
-			var imagePath = "Stock\\Airlines";
-
-			var path = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-			var debug = Path.GetDirectoryName(path);
-			var bin = Path.GetDirectoryName(debug);
-			var defaultPath = Path.GetDirectoryName(bin);
-
-			var sourceDir = Path.Combine(defaultPath, imagePath);
-			var targetDir = Path.Combine(path, imagePath);
-
-			if (!Directory.Exists(targetDir))
+			try
 			{
-				Copy(sourceDir, targetDir);
-			}
+				var imagePath = "Stock\\Airlines";
 
-			var files = Directory.GetFiles(targetDir);
-			foreach (string file in files)
-				if (Path.GetFileName(file).Contains(imageName))
-				{
-					return file;
-				}
-			return string.Empty;
+				var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+				var files = Directory.GetFiles(Path.Combine(path, imagePath));
+				foreach (string file in files)
+					if (Path.GetFileName(file).Contains(imageName))
+					{
+						return file;
+					}
+				return string.Empty;
+			}
+			catch(Exception ex)
+			{
+				Logger.Log($"GetImagePath: {ex.Message}");
+				return string.Empty;
+			}
 		}
 		private static void Copy(string sourceDir, string targetDir)
 		{

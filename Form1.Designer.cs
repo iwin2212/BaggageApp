@@ -82,14 +82,14 @@
 			// 
 			// LblServerTime
 			// 
-			this.LblServerTime.AutoSize = true;
 			this.LblServerTime.BackColor = System.Drawing.Color.Black;
 			this.LblServerTime.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblServerTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.LblServerTime.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.LblServerTime.ForeColor = System.Drawing.Color.Gold;
-			this.LblServerTime.Location = new System.Drawing.Point(289, 0);
+			this.LblServerTime.Location = new System.Drawing.Point(286, 0);
+			this.LblServerTime.Margin = new System.Windows.Forms.Padding(0);
 			this.LblServerTime.Name = "LblServerTime";
-			this.LblServerTime.Size = new System.Drawing.Size(610, 42);
+			this.LblServerTime.Size = new System.Drawing.Size(616, 42);
 			this.LblServerTime.TabIndex = 4;
 			this.LblServerTime.Text = "Time";
 			this.LblServerTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,10 +109,9 @@
 			// 
 			// LblBelt
 			// 
-			this.LblBelt.AutoSize = true;
 			this.LblBelt.BackColor = System.Drawing.Color.Gainsboro;
 			this.LblBelt.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LblBelt.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.LblBelt.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.LblBelt.ForeColor = System.Drawing.Color.Black;
 			this.LblBelt.Location = new System.Drawing.Point(243, 0);
 			this.LblBelt.Name = "LblBelt";
