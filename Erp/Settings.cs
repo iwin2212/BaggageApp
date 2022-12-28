@@ -18,21 +18,32 @@ namespace BaggageApp.Erp
 		{
 			var myIni = new IniFile();
 			#region url
-			myIni.SetValue("Url", "ws", "https://ws.noibaiairport.org");
+			if (string.IsNullOrEmpty(myIni.GetValue("Url", "ws", "")))
+			{
+				myIni.SetValue("Url", "ws", "https://ws.noibaiairport.org");
+			}
 			#endregion
 
 			#region user
-			myIni.SetValue("User", "usr", Encryption.Encrypt("bags.api"));
-			myIni.SetValue("User", "pwd", Encryption.Encrypt("4sRS!K78_Q0w"));
+			if (string.IsNullOrEmpty(myIni.GetValue("User", "usr", "")))
+			{
+				myIni.SetValue("User", "usr", Encryption.Encrypt("bags.api"));
+			}
+			if (string.IsNullOrEmpty(myIni.GetValue("User", "pwd", "")))
+			{
+				myIni.SetValue("User", "pwd", Encryption.Encrypt("4sRS!K78_Q0w"));
+			}
 			#endregion
 
 			#region FlightArrival
-			myIni.SetValue("FlightArrival", "terminal", "T2");
-			myIni.SetValue("FlightArrival", "belt", "2");
-			#endregion
-
-			#region Stock
-
+			if (string.IsNullOrEmpty(myIni.GetValue("FlightArrival", "terminal", "")))
+			{
+				myIni.SetValue("FlightArrival", "terminal", "T2");
+			}
+			if (string.IsNullOrEmpty(myIni.GetValue("FlightArrival", "belt", "")))
+			{
+				myIni.SetValue("FlightArrival", "belt", "2");
+			}
 			#endregion
 		}
 
