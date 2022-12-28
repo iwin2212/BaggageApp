@@ -26,11 +26,22 @@ namespace BaggageApp
 			SetStartup();
 			Settings.Initialize();
 			GetData2Form();
+			GetTime();
+
 			LblBelt.Text = Settings.GetBelt();
-			timer1.Interval = 30000;
+
+			timer1.Interval = 60000;
 			timer1.Tick += new System.EventHandler(timer1_Tick);
 			timer1.Start();
 		}
+
+		private async Task GetTime()
+		{
+			var api = new ApiConnection();
+			var serverTime = await api.GetServerTime();
+			LblServerTime.Text = serverTime.ToString("dd/MM/yyyy HH:mm");
+		}
+
 		private static void SetStartup()
 		{
 			//Set the application to run at startup
@@ -40,6 +51,7 @@ namespace BaggageApp
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
+			GetTime();
 			GetData2Form();
 		}
 
@@ -72,12 +84,12 @@ namespace BaggageApp
 							Status = (isFirstBag ? $"FirstBag = {item.FirstBag.Insert(2, ":")}" : "") +
 										(isLastBag ? $" ; LastBag = {item.LastBag.Insert(2, ":")}" : ""),
 							Message = (isLastBag ? $"FirstBag chuyến {item.FlightNo} đã cập nhật" : (isFirstBag ? $"LastBag chuyến {item.FlightNo} đã cập nhật" : "")),
-							BtnUpdateText = isFirstBag?"Kết thúc":"Bắt đầu",
-							BtnUpdateDisabled = isLastBag?false:true,
+							BtnUpdateText = isFirstBag ? "Kết thúc" : "Bắt đầu",
+							BtnUpdateDisabled = isLastBag ? false : true,
 						};
 						uCRow.Width = FLPRow.Width;
 						uCRow.Height = FLPRow.Height / (flight.Length);
-						if (cnt % 2 == 0) uCRow.tablePanel = Color.FromArgb(67,63,63);
+						if (cnt % 2 == 0) uCRow.tablePanel = Color.FromArgb(67, 63, 63);
 						FLPRow.Controls.Add(uCRow);
 					}
 					cnt++;

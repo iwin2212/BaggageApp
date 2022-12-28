@@ -41,6 +41,7 @@
 			this.FLPRow = new System.Windows.Forms.FlowLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.LblBelt = new System.Windows.Forms.Label();
+			this.LblServerTime = new System.Windows.Forms.Label();
 			this.DgvTitle.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.PnlRow.SuspendLayout();
@@ -231,6 +232,18 @@
 			this.LblBelt.Text = "1";
 			this.LblBelt.Click += new System.EventHandler(this.label2_Click);
 			// 
+			// LblServerTime
+			// 
+			this.LblServerTime.AutoSize = true;
+			this.LblServerTime.BackColor = System.Drawing.Color.Black;
+			this.LblServerTime.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.LblServerTime.ForeColor = System.Drawing.Color.Gold;
+			this.LblServerTime.Location = new System.Drawing.Point(688, 3);
+			this.LblServerTime.Name = "LblServerTime";
+			this.LblServerTime.Size = new System.Drawing.Size(116, 54);
+			this.LblServerTime.TabIndex = 4;
+			this.LblServerTime.Text = "Time";
+			// 
 			// Form1
 			// 
 			this.AllowResize = false;
@@ -240,6 +253,7 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(932, 426);
 			this.ControlBox = false;
+			this.Controls.Add(this.LblServerTime);
 			this.Controls.Add(this.LblBelt);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.PnlRow);
@@ -275,5 +289,6 @@
 		private MetroSet_UI.Controls.MetroSetLabel update;
 		private Label label1;
 		private Label LblBelt;
+		private Label LblServerTime;
 	}
 }

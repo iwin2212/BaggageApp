@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Globalization;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Cryptography.Xml;
@@ -59,11 +60,12 @@ namespace BaggageApp.Erp
 		{
 			try
 			{
+				var now = await GetServerTime();
 				using var client = new HttpClient();
 				var flightArrival = new FlightArrival()
 				{
-					FromDate = DateTime.Now.AddHours(-5),
-					ToDate = DateTime.Now.AddHours(+5),
+					FromDate = now.AddHours(-5),
+					ToDate = now.AddHours(+5),
 					Terminal = Settings.GetTerminal(),
 					ArrDep = "A",
 					Belt = Settings.GetBelt(),
@@ -103,6 +105,23 @@ namespace BaggageApp.Erp
 			catch (Exception ex)
 			{
 				return ex.Message;
+			}
+		}
+
+		public async Task<DateTime> GetServerTime()
+		{
+			try
+			{
+				using var client = new HttpClient();
+				var response = await client.GetAsync<string>(Settings.GetServerTimeURL(), Settings.GetToken());
+				var res = JObject.Parse(response);
+				var stringTime = res["serverTime"].ToString();
+				var serverTime = DateTimeOffset.Parse(stringTime, CultureInfo.InvariantCulture);
+				return serverTime.DateTime;
+			}
+			catch
+			{
+				return await GetServerTime();
 			}
 		}
 	}

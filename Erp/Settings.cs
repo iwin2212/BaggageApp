@@ -105,6 +105,10 @@ namespace BaggageApp.Erp
 		{
 			return $"{GetWsUrl()}/WSSMIS8011";
 		}
+		public static string GetServerTimeURL()
+		{
+			return $"{GetWsUrl()}/ServerTime";
+		}
 
 		public static string GetImagePath(string imageName)
 		{
