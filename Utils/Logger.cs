@@ -1,4 +1,6 @@
-﻿namespace BaggageApp.Utils
+﻿using System.Reflection;
+
+namespace BaggageApp.Utils
 {
 	public class Logger
 	{
@@ -7,13 +9,18 @@
 			try
 			{
 				if (!Directory.Exists(FolderPath))
+				{
 					Directory.CreateDirectory(FolderPath);
-
-				SaveMessage(message);
+				}
+				var isPermitted = DirPermission.SetEveryoneAccess(FolderPath);
+				if (isPermitted)
+				{
+					SaveMessage(message);
+				}
 			}
 			catch (Exception e)
 			{
-				SaveMessage("Cannot open log_{DateTime.Now:dd/MM/yyyy}.txt for writing");
+				SaveMessage($"Cannot open log_{DateTime.Now:dd/MM/yyyy}.txt for writing");
 				SaveMessage(e.Message);
 				return;
 			}
@@ -21,7 +28,10 @@
 
 		public static void SaveMessage(string mes)
 		{
-			var path = $"./log/log_{DateTime.Now:dd_MM_yyyy}.txt";
+			var exePath = Assembly.GetEntryAssembly().Location;
+			var folderPath = Path.GetDirectoryName(exePath);
+			var path = Path.Combine(folderPath, $"log_{DateTime.Now:dd_MM_yyyy}.txt");
+
 			try
 			{
 				if (!File.Exists(path))
@@ -36,7 +46,6 @@
 			{
 				Console.WriteLine(e.Message);
 				File.AppendAllText(path, e.Message);
-				return;
 			}
 		}
 	}

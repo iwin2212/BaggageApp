@@ -1,0 +1,6 @@
+Create file 29_12_2022.txt
+
+12/29/2022 9:07:26 AM - Set the application to run at startup
+12/29/2022 9:07:34 AM - GetServerTime - serverTime: 12/29/2022 9:07:27 AM
+12/29/2022 9:07:34 AM - Flight2Belt - flightArrival: {"FromDate":"2022-12-29T04:07:27Z","ToDate":"2022-12-29T14:07:27Z","Terminal":"T2","ArrDep":"A","Belt":"1"}
+12/29/2022 9:07:34 AM - GetServerTime - serverTime: 12/29/2022 9:07:27 AM
