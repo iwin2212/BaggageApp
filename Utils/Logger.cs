@@ -4,8 +4,9 @@ namespace BaggageApp.Utils
 {
 	public class Logger
 	{
-		public static void Log(string message, string FolderPath = "./log")
+		public static void Log(string message)
 		{
+			var FolderPath = Path.GetDirectoryName(GetLogPath());
 			try
 			{
 				if (!Directory.Exists(FolderPath))
@@ -28,9 +29,7 @@ namespace BaggageApp.Utils
 
 		public static void SaveMessage(string mes)
 		{
-			var exePath = Assembly.GetEntryAssembly().Location;
-			var folderPath = Path.GetDirectoryName(exePath);
-			var path = Path.Combine(folderPath, $"log_{DateTime.Now:dd_MM_yyyy}.txt");
+			var path = GetLogPath();
 
 			try
 			{
@@ -46,6 +45,20 @@ namespace BaggageApp.Utils
 			{
 				Console.WriteLine(e.Message);
 				File.AppendAllText(path, e.Message);
+			}
+		}
+
+		public static string GetLogPath()
+		{
+			try
+			{
+				var exePath = Assembly.GetEntryAssembly().Location;
+				var folderPath = Path.GetDirectoryName(exePath);
+				return Path.Combine(folderPath, $"log_{DateTime.Now:dd_MM_yyyy}.txt");
+			}
+			catch
+			{
+				return string.Empty;
 			}
 		}
 	}
