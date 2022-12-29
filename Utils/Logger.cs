@@ -53,7 +53,7 @@ namespace BaggageApp.Utils
 			try
 			{
 				var exePath = Assembly.GetEntryAssembly().Location;
-				var folderPath = Path.GetDirectoryName(exePath);
+				var folderPath =Path.Combine(Path.GetDirectoryName(exePath), "log");
 				return Path.Combine(folderPath, $"log_{DateTime.Now:dd_MM_yyyy}.txt");
 			}
 			catch
