@@ -17,7 +17,7 @@ namespace BaggageApp.Erp
 
 		public static string GetWsUrl()
 		{
-			var myIni = new IniFile();
+			var myIni = new IniFile(GetSettingPath());;
 			return myIni.GetValue("Url", "ws", ws);
 		}
 
@@ -90,40 +90,40 @@ namespace BaggageApp.Erp
 
 		public static void SaveToken(string token)
 		{
-			var myIni = new IniFile();
+			var myIni = new IniFile(GetSettingPath());;
 			myIni.SetValue("User", "token", token);
 		}
 
 		public static string GetToken()
 		{
-			var myIni = new IniFile();
+			var myIni = new IniFile(GetSettingPath());;
 			var token = myIni.GetValue("User", "token", "");
 			return token;
 		}
 
 		public static string GetBelt()
 		{
-			var myIni = new IniFile();
+			var myIni = new IniFile(GetSettingPath());;
 			return myIni.GetValue("FlightArrival", "belt", belt);
 		}
 
 		public static string GetTerminal()
 		{
-			var myIni = new IniFile();
+			var myIni = new IniFile(GetSettingPath());;
 			return myIni.GetValue("FlightArrival", "terminal", terminal);
 		}
 
 		public static string GetUsername()
 		{
-			var myIni = new IniFile();
-			var username = myIni.GetValue("User", "usr", usr);
+			var myIni = new IniFile(GetSettingPath());;
+			var username = myIni.GetValue("User", "usr", Encryption.Encrypt(usr));
 			return Encryption.Decrypt(username);
 		}
 
 		public static string GetPassword()
 		{
-			var myIni = new IniFile();
-			var password = myIni.GetValue("User", "pwd", pwd);
+			var myIni = new IniFile(GetSettingPath());;
+			var password = myIni.GetValue("User", "pwd", Encryption.Encrypt(pwd));
 			return Encryption.Decrypt(password);
 		}
 
