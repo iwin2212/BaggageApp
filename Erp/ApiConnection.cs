@@ -64,8 +64,8 @@ namespace BaggageApp.Erp
 				using var client = new HttpClient();
 				var flightArrival = new FlightArrival()
 				{
-					FromDate = (DateTime) (now?.AddHours(-36)),
-					ToDate = (DateTime) (now?.AddHours(-24)),
+					FromDate = (DateTime) (now?.AddHours(-5)),
+					ToDate = (DateTime) (now?.AddHours(+5)),
 					Terminal = Settings.GetTerminal(),
 					ArrDep = "A",
 					Belt = Settings.GetBelt(),
@@ -104,7 +104,7 @@ namespace BaggageApp.Erp
 					FlightNo = FlightNo
 				};
 				var response = await client.PostAsync<string>(Settings.GetUpdateLuggageStatusURL(), luggage, Settings.GetToken());
-				Logger.Log($"UpdateLuggageStatus - request: {JsonConvert.SerializeObject(response)} - response: {JsonConvert.SerializeObject(response)}");
+				Logger.Log($"UpdateLuggageStatus - response: {JsonConvert.SerializeObject(response)}");
 				var res = JObject.Parse(response);
 				return res["message"].ToString();
 			}

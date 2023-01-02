@@ -72,7 +72,7 @@ namespace BaggageApp
 				foreach (var item in flight)
 				{
 					if (FLPRow.Controls.Count > 5) return;
-					//if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
+					if (string.IsNullOrEmpty(item.FirstBag) || string.IsNullOrEmpty(item.LastBag))
 					{
 						var path = Settings.GetImagePath(item.FlightNo.Substring(0, 2));
 						var isFirstBag = !string.IsNullOrEmpty(item.FirstBag);

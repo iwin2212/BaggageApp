@@ -1,4 +1,8 @@
 ﻿using BaggageApp.Erp;
+using BaggageApp.Models;
+using BaggageApp.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace BaggageApp
 {
@@ -65,22 +69,25 @@ namespace BaggageApp
 			var FlightNo = LblFlightNo.Text;
 			var api = new ApiConnection();
 			var now = await api?.GetServerTime();
-			if (string.IsNullOrEmpty(LblStatus.Text))
+			var s = (sender as Button).Text;
+
+			Logger.Log($"Flight2Belt - BtnUpdate_Click: {FlightNo} {s}");
+
+			if (s == "Bắt đầu")
 			{
-				var firstBagResult = await api.UpdateLuggageStatus("FirstBag", now?.AddDays(-1).ToString("HH:mm"),
-																							now?.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
+				var firstBagResult = await api.UpdateLuggageStatus("FirstBag", now?.ToString("HH:mm"),
+																							now?.ToString("yyyy-MM-dd"), FlightNo);
 				LblMessage.Text = firstBagResult;
+				BtnUpdateText = "Kết thúc";
 			}
 			else
 			{
 				var status = LblStatus.Text.Split(';');
 				var firstBag = status[0].Split('=')[1].Trim();
-				if (!string.IsNullOrEmpty(firstBag) && status.Length == 1)
-				{
-					var lastBagResult = await api.UpdateLuggageStatus("LastBag", now?.AddDays(-1).ToString("HH:mm"),
-																								now?.AddDays(-1).ToString("yyyy-MM-dd"), FlightNo);
-					LblMessage.Text = lastBagResult;
-				}
+				var lastBagResult = await api.UpdateLuggageStatus("LastBag", now?.ToString("HH:mm"),
+																							now?.ToString("yyyy-MM-dd"), FlightNo);
+				LblMessage.Text = lastBagResult;
+				BtnUpdateDisabled = false;
 			}
 		}
 
