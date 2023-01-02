@@ -159,7 +159,7 @@
 			this.flightTo.Style = MetroSet_UI.Enums.Style.Light;
 			this.flightTo.StyleManager = null;
 			this.flightTo.TabIndex = 18;
-			this.flightTo.Text = "Chuyến bay";
+			this.flightTo.Text = "Chặng bay";
 			this.flightTo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.flightTo.ThemeAuthor = "Narwin";
 			this.flightTo.ThemeName = "MetroLite";
