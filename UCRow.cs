@@ -1,8 +1,5 @@
 ﻿using BaggageApp.Erp;
-using BaggageApp.Models;
 using BaggageApp.Utils;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace BaggageApp
 {
@@ -82,8 +79,6 @@ namespace BaggageApp
 			}
 			else
 			{
-				var status = LblStatus.Text.Split(';');
-				var firstBag = status[0].Split('=')[1].Trim();
 				var lastBagResult = await api.UpdateLuggageStatus("LastBag", now?.ToString("HH:mm"),
 																							now?.ToString("yyyy-MM-dd"), FlightNo);
 				LblMessage.Text = lastBagResult;
