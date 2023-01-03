@@ -64,8 +64,8 @@ namespace BaggageApp.Erp
 				using var client = new HttpClient();
 				var flightArrival = new FlightArrival()
 				{
-					FromDate = (DateTime) (now?.AddDays(-2).AddHours(-5)),
-					ToDate = (DateTime) (now?.AddDays(-2).AddHours(+5)),
+					FromDate = (DateTime) (now?.AddHours(-5)),
+					ToDate = (DateTime) (now?.AddHours(+5)),
 					Terminal = Settings.GetTerminal(),
 					ArrDep = "A",
 					Belt = Settings.GetBelt(),
