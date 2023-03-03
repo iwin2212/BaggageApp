@@ -47,7 +47,9 @@ namespace BaggageApp.Erp
 				};
 				var response = await client.PostAsync<string>(Settings.GetRenewTokenURL(), payload, Settings.GetToken());
 				var res = JObject.Parse(response);
-				return string.Empty;
+                var token = res["data"][0]["token"].ToString();
+                Settings.SaveToken(token);
+                return string.Empty;
 			}
 			catch (Exception ex)
 			{
