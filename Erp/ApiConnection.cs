@@ -54,6 +54,7 @@ namespace BaggageApp.Erp
 			catch (Exception ex)
 			{
 				Logger.Log($"RenewToken: {ex.Message}");
+				Signin();
 				return ex.Message;
 			}
 		}
@@ -79,7 +80,7 @@ namespace BaggageApp.Erp
 					await Signin();
 				}
 				var response = await client.PostAsync<string>(Settings.GetFlight2BeltURl(), flightArrival, Settings.GetToken());
-				if (response == HttpStatusCode.Unauthorized.ToString())
+				if (response == HttpStatusCode.Unauthorized.ToString() || !JObject.Parse(response).SelectToken("success").Value<bool>())
 				{
 					RenewToken();
 					response = await client.PostAsync<string>(Settings.GetFlight2BeltURl(), flightArrival, Settings.GetToken());
